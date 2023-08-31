@@ -1,7 +1,5 @@
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        n = len(nums)
-        
         def quickselect(nums, k):
             # Randomly choose a pivot value
             pivot = random.choice(nums) # pivot value
@@ -20,7 +18,6 @@ class Solution:
              
             if len(left) <= k < len(left) + len(mid):
                 # Base case: (n-k)th element is in the mid array, i.e., it's the pivot
-                # e.g., 4th largest
                 return mid[0] # or return pivot
             elif k < len(left):
                 # Case: kth largest is in the left array (i.e., smaller than the pivot)
@@ -30,5 +27,5 @@ class Solution:
                 return quickselect(right, k - len(left) - len(mid))
             
         # Instead of finding kth largest element, find (n - k)th smallest element
-        return quickselect(nums, n - k)
+        return quickselect(nums, len(nums) - k)
                     
