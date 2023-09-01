@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        unordered_map<char, int> hashbrown;
+        map<char, int> hashbrown;
         for (auto m : magazine) {
             hashbrown[m]++;
         }
