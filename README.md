@@ -57,4 +57,8 @@ Feel free to let me know if you need more explanation.
     }
     ```
     Hopefully you get the logic for removing duplicates from an array, keeping up to $n$ number of same elements.
+383. **Ransome Note [Easy, C++, Python, Java]**: Really straightforward question, and I did all three languages to give you the example of hashmap.
+    - C++: `std::unordered_map` is the hashmap with $O(1)$ average search, insertion, and deletion, time (16ms 63% beat for this q), and `std::map` is a self balanacing BST with `O(\log (n))` time (27ms 22% beat for this question). Also a nice thing, the default values of the `Operator` class will be initialized to zero, so no need to call default value method like with Python and Java.
+    - Python: Use dictionary, and utilize `dict.get(key, default_value)` for the case where dictionary key hasn't been initialized
+    - Java: Use `HashMap<Character, Integer>`. It looks the most disgusting.
 
