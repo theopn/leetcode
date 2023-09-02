@@ -46,6 +46,15 @@ Feel free to let me know if you need more explanation.
     It checks if the current value is the majority after we increment the counter in the Hashmap.
     The Python code is something called "Boyer-Moore majority vote algorithm."
     It's quite nice.
+- **189. Rotate Array [Medium, C++, Python]**: Python solution is the easy way of making a copy of the array and calculating a new index using modulus.
+    C++ solution is more complicated, but easier way to think about rotating an array.
+    - Consider `arr = [1 2 3 4 5 6 7]` and `rotated_by_3 = [5 6 7 1 2 3 4]`. At `k = 3`, you can separate the resultant array into `rotated_by_3 = [(5 6 7) (1 2 3 4)]`. `(5 6 7)` is `(7 6 5)` reversed and `(1 2 3 4)` is `(4 3 2 1)` reversed. Thus, reverse the whole array, and rotate sub-arrays to have the rotated array. For the implemented logic, look at my C++ solution.
+    - I actually meant to do the above way in Python, but oh god, reversing a partial list is harder in Python. I somehow ended up with one-line, cryptic solution in Python. Here it is:
+        ```python
+        def rotate(self, nums: List[int], k: int) -> None:
+            k = k % len(nums)
+            nums[:] = nums[-k:] + nums[:-k]
+        ```
 
 ## Two Pointers
 
