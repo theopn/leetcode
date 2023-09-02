@@ -60,6 +60,7 @@ Feel free to let me know if you need more explanation.
 
 - **125. Valid Palindrome [Easy, C++]**: I originally thought about using "Neetcode" method of going from the middle and check left and right element, but I was overcomplicating it.
     Simply use two pointers for the front and back, pass a character if it's not alphanumeric.
+- **392. Is Subsequence [Easy, Python, C++]**: Straightforward, just keep the pointer to the subsequence.
 
 ## Sliding Window
 
