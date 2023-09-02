@@ -42,6 +42,10 @@ Feel free to let me know if you need more explanation.
     }
     ```
     Hopefully you get the logic for removing duplicates from an array, keeping up to $n$ number of same elements.
+- **169. Majority Element [Easy, C++, Python]**: C++ solution is a simple solution using Hashmap.
+    It checks if the current value is the majority after we increment the counter in the Hashmap.
+    The Python code is something called "Boyer-Moore majority vote algorithm."
+    It's quite nice.
 
 ## Two Pointers
 
