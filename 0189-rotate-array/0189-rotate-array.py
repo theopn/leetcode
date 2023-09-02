@@ -3,6 +3,10 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        k = k % len(nums)
-        nums[:] = nums[-k:] + nums[:-k]
+        n = len(nums)
+        nums_cpy = nums.copy()
+        
+        for i in range(0, n):
+            pos = (i + k) % n 
+            nums[pos] = nums_cpy[i]
         
