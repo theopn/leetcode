@@ -65,6 +65,13 @@ Feel free to let me know if you need more explanation.
 ## Sliding Window
 
 - **209. Minimum Size Subarray Sum [Medium, C++, Java, Python]**: Classic Sliding Window problem. Read the comment on the C++ code.
+- **3. Longest Substring Without Repeating Characters [Medium, C++]**: In the main loop, use Sliding Window to extend the tail of the window.
+    Using Hashmap, check if a character has occurred once.
+    If so, shrink the tail until the character isn't repeated.
+
+    For example, in `[^a d d$ f]` (where `^` and `$` represents the head and the tail of the window), because `d` is repeated, move the tail up to the second `d`: `[a d ^d$ f]`.
+    Obviously keep the length of the longest substring so far.
+    A quite simple question once you understand Sliding Window.
 
 ## Matrix
 
