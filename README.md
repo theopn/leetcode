@@ -57,6 +57,8 @@ Feel free to let me know if you need more explanation.
         ```
 - **121. Best Time to Buy and Sell Stock [Easy, Python]**: Very simple, Sliding Window-ish solution.
     Checking both the maximum profit and minimum element as you slide the window.
+- **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
+    You are buying it from yesterday and selling it today as long as it makes a positive profit.
 
 ## Two Pointers
 
