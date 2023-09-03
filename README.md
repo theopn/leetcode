@@ -55,6 +55,8 @@ Feel free to let me know if you need more explanation.
             k = k % len(nums)
             nums[:] = nums[-k:] + nums[:-k]
         ```
+- **121. Best Time to Buy and Sell Stock [Easy, Python]**: Very simple, Sliding Window-ish solution.
+    Checking both the maximum profit and minimum element as you slide the window.
 
 ## Two Pointers
 
