@@ -5,4 +5,4 @@ class Solution:
             if i + nums[i] >= curr:
                 curr = i
                 
-        return True if curr == 0 else False
+        return curr == 0
