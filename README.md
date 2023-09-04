@@ -59,6 +59,10 @@ Feel free to let me know if you need more explanation.
     Checking both the maximum profit and minimum element as you slide the window.
 - **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
+- **55. Jump Game [Medium, C++, Python]**: Both solutions use the same logic.
+    It goes from the end of the array to the beginning and see if the index tracked by `curr` variable can be reached using the jump length at `i`.
+    If so, update the `curr` to be the current index.
+    In the end, check if `curr == 0`, meaning you could go back from the end of the array to the beginning and vice versa.
 
 ## Two Pointers
 
