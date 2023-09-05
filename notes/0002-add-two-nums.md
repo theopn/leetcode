@@ -36,8 +36,12 @@
 ## Optimization
 
 - Always calculate `sum = sum % 10` since if it's smaller than 10, it will have no effect.
+- You can combine this into one while loop!
+    Change the condition to `l1 or l2` and within the loop, add and advance `l1` or `l2` if they are not nil.
 
 ## Pseudocode
+
+Version with multiple while loops:
 
 ```lua
 function add_two_num(l1, l2)
@@ -79,6 +83,44 @@ function add_two_num(l1, l2)
 end
 ```
 
+One while loop:
+
+```lua
+function add_two_num(l1, l2)
+    int carry = 0
+    -- Dummy val prevents ans_bak to be nil and actually follow the ans linked list
+    ans = { val = "dummy value", next = nil }
+    ans_bak = ans
+
+    while l1 or l2 do
+        -- Addition iff nodes are still valid
+        sum = carry
+        if l1 then
+            sum += l1.val
+            l1 = l1.next
+        end
+        if l2 then
+            sum += l2.val
+            l2 = l2.next
+        end
+
+        -- Calculation in case sum >= 10
+        carry = sum / 10
+        sum = sum % 10
+
+        -- Assignment and moving on to the next node
+        ans.next = { val = sum, next = nil }
+        l1, l2, ans = l1.next, l2.next, ans.next
+    end
+
+    if carry != 0 then
+        ans.next = { val = carry, next = nil }
+    end
+
+    return ans_bak.next --> de facto had of the list after the dummy val
+end
+```
+
 ## Analysis
 
 - Let $n$ be the length of `l1` and $m$ be the length of `l2`
@@ -88,6 +130,9 @@ end
 - Thus, the whole while loop depends on whichever list is larger.
     We don't know that, but we know for sure that it is smaller than $n + m$.
     Thus, the run time is $O(n + m)$.
+
+- It's clearer for the "one while loop" version.
+    Since it iterates for the longer one of `l1` or `l2`, it's $O(n + m)$.
 
 ## Relevant Coding Skills
 
