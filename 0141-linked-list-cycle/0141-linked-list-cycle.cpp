@@ -10,9 +10,7 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
        ListNode *tortoise = head, *hare = head;
-       while ((tortoise != NULL)
-              && (hare != NULL)
-              && (hare->next != NULL)) {
+       while ((hare != NULL) && (hare->next != NULL)) {
             tortoise = tortoise->next;
             hare = hare->next->next;
 
