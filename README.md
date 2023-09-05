@@ -2,8 +2,9 @@
 
 Here is the list of questions I solved along with the language(s) used and relevant topics.
 Questions and solutions I believe to be important or unique are bolded.
-I make detailed explanations in the [notes directory](./notes/)
-Feel free to let me know if you need more explanations.
+
+There are detailed explanations in the [notes directory](./notes/).
+It includes the explanations of my approach in English, Lua-style pseudocode, runtime analysis, and relevant programming language skills that could be used.
 
 ## Array/String
 
