@@ -69,8 +69,8 @@ end
 
 - Let $k$ be the `total_len`
 - The outer for loop is $O(n - k) \in O(n)$
-- The inner for loop is $O(\log (k))$
-- Thus, the total runtime is $O(n \log (k))$
+- The inner for loop is $O(\log (k))$, and assuming $n > k$, $O(\log (k)) \in O(\log (n))$
+- Thus, the total runtime is $O(n \log (k)) \in O(n \log (n))$
 
 ## Relevant Coding Skills
 
