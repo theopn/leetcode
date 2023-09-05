@@ -1,10 +1,9 @@
 # My Leetcode Solutions
 
-Here are brief overviews of my solutions.
-I take handwritten notes for all questions, and they contain more details.
-Feel free to let me know if you need more explanation.
-
-[TOC]
+Here is the list of questions I solved along with the language(s) used and relevant topics.
+Questions and solutions I believe to be important or unique are bolded.
+I make detailed explanations in the [notes directory](./notes/)
+Feel free to let me know if you need more explanations.
 
 ## Array/String
 
@@ -59,7 +58,7 @@ Feel free to let me know if you need more explanation.
     Checking both the maximum profit and minimum element as you slide the window.
 - **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
-- [55. Jump Game](notes/0030-substr-w-concate-of-all-words.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
+- [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
 
 ## Two Pointers
 
@@ -77,7 +76,7 @@ Feel free to let me know if you need more explanation.
     For example, in `[^a d d$ f]` (where `^` and `$` represents the head and the tail of the window), because `d` is repeated, move the tail up to the second `d`: `[a d ^d$ f]`.
     Obviously keep the length of the longest substring so far.
     A quite simple question once you understand Sliding Window.
-- [30. Substring with Concatenation of All Words](notes/0030-substr-w-concate-of-all-words.md) (Hard, Python): Sliding Window, Hashmap, Substring
+- [30. Substring with Concatenation of All Words](./notes/0030-substr-w-concate-of-all-words.md) (Hard, Python): Sliding Window, Hashmap, Substring
 
 ## Matrix
 
