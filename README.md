@@ -80,7 +80,7 @@ Feel free to let me know if you need more explanation.
     For example, in `[^a d d$ f]` (where `^` and `$` represents the head and the tail of the window), because `d` is repeated, move the tail up to the second `d`: `[a d ^d$ f]`.
     Obviously keep the length of the longest substring so far.
     A quite simple question once you understand Sliding Window.
-- [30. Substring with Concatenation of All Words](./notes/0030-substr-w-concate-of-all-words.md) [Hard, Python]: Sliding Window, Hashmap, Substring
+- [30. Substring with Concatenation of All Words](notes/0030-substr-w-concate-of-all-words.md) [Hard, Python]: Sliding Window, Hashmap, Substring
 
 ## Matrix
 
