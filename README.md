@@ -89,6 +89,7 @@ Feel free to let me know if you need more explanations.
 ## Linked List
 
 - [**141. Linked List Cycle**](./notes/0141-linked-list-cycle.md) (Easy, C++, Python): Floyd's tortoise and hare algorithm
+- [**2. Add Two Numbers**](./notes/0002-add-two-nums.md) (Medium, C++): Linked List initialization
 
 ## Binary Tree General
 
