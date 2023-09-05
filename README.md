@@ -69,7 +69,7 @@ Feel free to let me know if you need more explanations.
 ## Sliding Window
 
 - **209. Minimum Size Subarray Sum [Medium, C++, Java, Python]**: Classic Sliding Window problem. Read the comment on the C++ code.
-- [3. Longest Substring Without Repeating Characters](./notes/0003-longest-substr-wo-repeating-char.md) (Medium, C++): Sliding window, Hashmap
+- [**3. Longest Substring Without Repeating Characters**](./notes/0003-longest-substr-wo-repeating-char.md) (Medium, C++): Sliding window, Hashmap
 - [30. Substring with Concatenation of All Words](./notes/0030-substr-w-concate-of-all-words.md) (Hard, Python): Sliding Window, Hashmap, Substring
 
 ## Matrix
@@ -87,6 +87,8 @@ Feel free to let me know if you need more explanations.
 ## Stack
 
 ## Linked List
+
+- [**141. Linked List Cycle**](./notes/0141-linked-list-cycle.md) (Easy, C++, Python): Floyd's tortoise and hare algorithm
 
 ## Binary Tree General
 
