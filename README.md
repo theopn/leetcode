@@ -59,10 +59,7 @@ Feel free to let me know if you need more explanation.
     Checking both the maximum profit and minimum element as you slide the window.
 - **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
-- **55. Jump Game [Medium, C++, Python]**: Both solutions use the same logic.
-    It goes from the end of the array to the beginning and see if the index tracked by `curr` variable can be reached using the jump length at `i`.
-    If so, update the `curr` to be the current index.
-    In the end, check if `curr == 0`, meaning you could go back from the end of the array to the beginning and vice versa.
+- [55. Jump Game](notes/0030-substr-w-concate-of-all-words.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
 
 ## Two Pointers
 
@@ -80,7 +77,7 @@ Feel free to let me know if you need more explanation.
     For example, in `[^a d d$ f]` (where `^` and `$` represents the head and the tail of the window), because `d` is repeated, move the tail up to the second `d`: `[a d ^d$ f]`.
     Obviously keep the length of the longest substring so far.
     A quite simple question once you understand Sliding Window.
-- [30. Substring with Concatenation of All Words](notes/0030-substr-w-concate-of-all-words.md) [Hard, Python]: Sliding Window, Hashmap, Substring
+- [30. Substring with Concatenation of All Words](notes/0030-substr-w-concate-of-all-words.md) (Hard, Python): Sliding Window, Hashmap, Substring
 
 ## Matrix
 
