@@ -2,7 +2,7 @@
 
 ## Relevant Skills
 
-- `Merge` algorithm from `MergeSort`
+- `Merge` subroutine from `MergeSort`
 
 ## Approach
 
@@ -78,8 +78,7 @@ end
 
 ## Analysis
 
-- Main loop is $O(n + m)$, strictly $O(max(n, m))$
+- Main loop is $O(n + m)$, strictly $O(\text{max} (n, m))$
 
 ## Relevant Coding Skills
-
 
