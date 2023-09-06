@@ -6,7 +6,7 @@ Questions and solutions I believe to be important or unique are bolded.
 There are detailed explanations in the [notes directory](./notes/).
 It includes the explanations of my approach in English, Lua-style pseudocode, runtime analysis, and relevant programming language skills that could be used.
 
-## Array/String
+## Array String
 
 - [88. Merge Sorted Array](./notes/0088-merge-sorted-arr.md) (Easy, Python): `Merge` subroutine from `MergeSort`
 - [27. Remove Element](./notes/0027-remove-elem.md) (Easy, Java): Pointless question
@@ -46,7 +46,6 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 - **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
-- [**141. Linked List Cycle**](./notes/0141-linked-list-cycle.md) (Easy, C++, Python): Floyd's tortoise and hare algorithm Oops why is it here. It's for testing because the links in this section doesn't work for some reason
 
 ## Two Pointers
 
