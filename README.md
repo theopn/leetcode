@@ -9,7 +9,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 ## Array/String
 
 - [88. Merge Sorted Array](./notes/0088-merge-sorted-arr.md) (Easy, Python): `Merge` subroutine from `MergeSort`
-- **27. Remove Element [Easy, Java]**: Use single pointer, loop through the element in `nums` and assign it in the pointer position. Pretty pointless question.
+- [27. Remove Element](./notes/0027-remove-elem.md) (Easy, Java): Pointless question
 - **26. Remove Duplicates from Sorted Array [Easy. C++]**: Here's the template for removing duplicate elements in an array:
     ```cpp
     int removeDuplicates(vector<int>& nums) {
