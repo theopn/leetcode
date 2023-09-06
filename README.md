@@ -10,19 +10,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 
 - [88. Merge Sorted Array](./notes/0088-merge-sorted-arr.md) (Easy, Python): `Merge` subroutine from `MergeSort`
 - [27. Remove Element](./notes/0027-remove-elem.md) (Easy, Java): Pointless question
-- **26. Remove Duplicates from Sorted Array [Easy. C++]**: Here's the template for removing duplicate elements in an array:
-    ```cpp
-    int removeDuplicates(vector<int>& nums) {
-        int pos = 1;
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums[i] != nums[pos - 1]) {
-                nums[pos] = nums[i];
-                pos++;
-            }
-        }
-        return pos;
-    }
-    ```
+- [26. Remove Duplicates from Sorted Array](./notes/0026-remove-dup-from-sorted-arr.md) (Easy, C++): Build-up for the 80.
 - **80. Remove Duplicates from Sorted Array II [Medium, C++]**: Same as 26, but keep up to 2 duplicate elements. Modifying the template from 26:
     ```cpp
     int removeDuplicates(vector<int>& nums) {
@@ -58,6 +46,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 - **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
+- [**141. Linked List Cycle**](./notes/0141-linked-list-cycle.md) (Easy, C++, Python): Floyd's tortoise and hare algorithm Oops why is it here. It's for testing because the links in this section doesn't work for some reason
 
 ## Two Pointers
 
