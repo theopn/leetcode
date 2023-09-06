@@ -61,8 +61,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 
 ## Two Pointers
 
-- **125. Valid Palindrome [Easy, C++]**: I originally thought about using "Neetcode" method of going from the middle and check left and right element, but I was overcomplicating it.
-    Simply use two pointers for the front and back, pass a character if it's not alphanumeric.
+- [125. Valid Palindrome](./notes/0125-valid-palindrome.md) (Easy, C++): Two Pointers
 - **392. Is Subsequence [Easy, Python, C++]**: Straightforward, just keep the pointer to the subsequence.
 
 ## Sliding Window
