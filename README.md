@@ -72,6 +72,8 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 
 ## Stack
 
+- [20. Valid Parentheses](./notes/0020-valid-paren.md) (Easy, C++): Stack operations, dictionary
+
 ## Linked List
 
 - [**141. Linked List Cycle**](./notes/0141-linked-list-cycle.md) (Easy, C++, Python): Floyd's tortoise and hare algorithm
