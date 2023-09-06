@@ -77,6 +77,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 - [**141. Linked List Cycle**](./notes/0141-linked-list-cycle.md) (Easy, C++, Python): Floyd's tortoise and hare algorithm
 - [**2. Add Two Numbers**](./notes/0002-add-two-nums.md) (Medium, C++): Dummy node for return list
 - [21. Merge Two Sorted Lists](./notes/0021-merge-two-sorted-lists.md) (Easy, C++): `Merge` algorithm from `MergeSort`, dummy node for return list
+- [138. Copy List with Random Pointer](./notes/0138-cp-list-w-rand-ptr.md) (Medium, C++): Hashmap
 
 ## Binary Tree General
 
