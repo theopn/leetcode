@@ -1,20 +1,16 @@
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        int front = 0, end = numbers.size() - 1;
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        front, end = 0, len(numbers) - 1
         
-        while (front < end) {
-            int sum = numbers[front] + numbers[end];
+        while front < end:
+            sum = numbers[front] + numbers[end]
             
-            if (sum == target) {
-                return { front + 1, end + 1 };
-            } else if (sum > target) {
-                end--;
-            } else {
-                front++;
-            }
-        }
+            if sum == target:
+                return [front + 1, end + 1]
+            elif sum > target:
+                end -= 1
+            else:
+                front += 1
+                
+        return [-1, -1]
         
-        return { -1, -1 };
-    }
-};
