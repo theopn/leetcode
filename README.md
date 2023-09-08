@@ -52,6 +52,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 - [125. Valid Palindrome](./notes/0125-valid-palindrome.md) (Easy, C++): Two Pointers
 - **392. Is Subsequence [Easy, Python, C++]**: Straightforward, just keep the pointer to the subsequence.
 - [167. Two Sum II - Input Array Is Sorted](./notes/0167-two-sum-ii-input-arr-is-sorted.md) (Medium, Python, C++): Two Pointers
+- [11. Container With Most Water](./notes/0011-container-w-most-water.md) (Medium, Python): Two Pointers
 
 ## Sliding Window
 
