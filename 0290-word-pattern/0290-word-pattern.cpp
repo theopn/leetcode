@@ -1,9 +1,6 @@
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
-        unordered_map<char, string> patt_to_w;
-        unordered_map<string, char> w_to_patt;
-
         vector<string> words;
         stringstream ss(s);
         string word;
@@ -14,6 +11,9 @@ public:
         if (pattern.size() != words.size()) {
             return false;
         }
+        
+        unordered_map<char, string> patt_to_w;
+        unordered_map<string, char> w_to_patt;
         
         for (int i = 0; i < pattern.size(); i++) {
             if (patt_to_w.find(pattern[i]) == patt_to_w.end()) {
