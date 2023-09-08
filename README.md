@@ -69,6 +69,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
         Also one nice thing, the default values of the `Operator` class will be initialized to zero, so no need to call default value method like with Python and Java.
     - Python: Use dictionary, and utilize `dict.get(key, default_value)` for the case where dictionary key hasn't been initialized
     - Java: Use `HashMap<Character, Integer>`. It looks disgusting.
+- [205. Isomorphic Strings](./notes/0205-isomorphic-str.md) (Easy, Python, C++): Hashmap, checking if key exists
 
 ## Intervals
 
