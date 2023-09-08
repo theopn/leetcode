@@ -1,5 +1,7 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(s) != len(t): return False
+
         s_to_t = {}
         t_to_s = {}
         for i in range(len(s)):
