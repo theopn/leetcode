@@ -3,8 +3,6 @@ class Solution:
         splits = path.split("/")
         stack = []
 
-        print(splits)
-        
         for comp in splits:
             if comp == "" or comp == ".":
                 continue
