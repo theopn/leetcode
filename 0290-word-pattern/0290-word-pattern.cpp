@@ -16,16 +16,14 @@ public:
         unordered_map<string, char> w_to_patt;
         
         for (int i = 0; i < pattern.size(); i++) {
-            if (patt_to_w.find(pattern[i]) == patt_to_w.end()) {
+            if (((patt_to_w.find(pattern[i]) != patt_to_w.end())
+                && (patt_to_w[pattern[i]] != words[i]))
+                || ((w_to_patt.find(words[i]) != w_to_patt.end())
+                   &&(w_to_patt[words[i]] != pattern[i]))) {
+                return false;
+            } else {
                 patt_to_w[pattern[i]] = words[i];
-            } else if (patt_to_w[pattern[i]] != words[i]) {
-                return false;
-            }
-
-            if (w_to_patt.find(words[i]) == w_to_patt.end()) {
                 w_to_patt[words[i]] = pattern[i];
-            } else if (w_to_patt[words[i]] != pattern[i]) {
-                return false;
             }
         }
 
