@@ -70,6 +70,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
     - Python: Use dictionary, and utilize `dict.get(key, default_value)` for the case where dictionary key hasn't been initialized
     - Java: Use `HashMap<Character, Integer>`. It looks disgusting.
 - [205. Isomorphic Strings](./notes/0205-isomorphic-str.md) (Easy, Python, C++): Hashmap, checking if key exists
+- [290. Word Pattern](./notes/0290-word-patt.md) (Easy, C++): Hashmap, checking if key exists
 
 ## Intervals
 

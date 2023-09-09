@@ -19,7 +19,18 @@
 
 ## Optimization
 
-- There has to be a way to do this with out repeating the same code twice
+- You can sacrifice the readability and combine the if statements together. For example:
+    ```lua
+    if (s_to_t[s[i]] ~= nil and s_to_t[s[i]] ~= t[i])
+        or (t_to_s[t[i]] ~= nil and t_to_s[t[i]] ~= s[i])
+    then
+        return false
+    else
+        s_to_t[s[i]] = t[i]
+        t_to_s[s[i]] = s[i]
+    end
+    ```
+    Or you can keep the 
 
 ## Pseudocode
 
