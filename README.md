@@ -77,6 +77,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 ## Stack
 
 - [20. Valid Parentheses](./notes/0020-valid-paren.md) (Easy, C++): Stack operations, dictionary
+- [71. Simplify Path](./notes/0071-simplify-path.md) (Medium, Python): Stack, string split
 
 ## Linked List
 
