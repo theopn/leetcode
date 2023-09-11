@@ -88,8 +88,9 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 
 ## Binary Tree General
 
-- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, C++, Python): Tree traversal, recursion
-- [100. Same Tree](./notes/0100-same-tree.md) (Easy, C++, Python): Tree traversal, recursion
+- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
+- [100. Same Tree](./notes/0100-same-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
+- [226. Invert Binary Tree](./notes/0226-invert-binary-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
 
 ## Binary Tree BFS
 
