@@ -46,6 +46,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 - **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
+- [45. Jump Game II](./notes/0045-jump-game-ii.md) (Medium, C++, Python): Two Pointers, DP
 
 ## Two Pointers
 
@@ -88,8 +89,8 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 
 ## Binary Tree General
 
-- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
-- [100. Same Tree](./notes/0100-same-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
+- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, Python, C++): Recursive DFS (Python), iterative BFS using queue (C++)
+- [100. Same Tree](./notes/0100-same-tree.md) (Easy, C++, Python): Recursive DFS (C++), iterative BFS using queue (Python)
 - [226. Invert Binary Tree](./notes/0226-invert-binary-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
 
 ## Binary Tree BFS
