@@ -6,6 +6,9 @@ Questions and solutions I believe to be important or unique are bolded.
 There are detailed explanations in the [notes directory](./notes/).
 It includes the explanations of my approach in English, Lua-style pseudocode, runtime analysis, and relevant programming language skills that could be used.
 
+I prioritize approaching questions algorithmically.
+But I also love Python one liners.
+
 ## Array String
 
 - [88. Merge Sorted Array](./notes/0088-merge-sorted-arr.md) (Easy, Python): `Merge` subroutine from `MergeSort`
@@ -72,6 +75,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
     - Java: Use `HashMap<Character, Integer>`. It looks disgusting.
 - [205. Isomorphic Strings](./notes/0205-isomorphic-str.md) (Easy, Python, C++): Hashmap, checking if key exists
 - [290. Word Pattern](./notes/0290-word-patt.md) (Easy, C++): Hashmap, checking if key exists
+- [242. Valid Anagram]() (Easy, Python): Python one liner, 
 
 ## Intervals
 
