@@ -80,6 +80,7 @@ But I also love Python one liners.
 - [242. Valid Anagram](./notes/0242-valid-anagram.md) (Easy, Python): Python one liner
 - [49. Group Anagrams]() (Medium, Python): //TODO
 - [1. Two Sum](./notes/0001-two-sum.md) (Easy, C++): Hashmap
+- [202. Happy Number](./notes/0202-happy-num.md) (Easy, C++, Python): Hashmap, Floyd's tortoise and hare algorithm
 
 ## Intervals
 
