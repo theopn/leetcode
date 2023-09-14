@@ -50,6 +50,7 @@ But I also love Python one liners.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
 - [45. Jump Game II](./notes/0045-jump-game-ii.md) (Medium, C++, Python): Two Pointers, DP
+- [274. H-Index](./notes/0274-h-idx.md) (Medium, C++, Python): Array sorting //TODO
 
 ## Two Pointers
 
@@ -57,6 +58,7 @@ But I also love Python one liners.
 - **392. Is Subsequence [Easy, Python, C++]**: Straightforward, just keep the pointer to the subsequence.
 - [167. Two Sum II - Input Array Is Sorted](./notes/0167-two-sum-ii-input-arr-is-sorted.md) (Medium, Python, C++): Two Pointers
 - [11. Container With Most Water](./notes/0011-container-w-most-water.md) (Medium, Python): Two Pointers
+- [15. 3Sum](./) // TODO
 
 ## Sliding Window
 
@@ -75,7 +77,9 @@ But I also love Python one liners.
     - Java: Use `HashMap<Character, Integer>`. It looks disgusting.
 - [205. Isomorphic Strings](./notes/0205-isomorphic-str.md) (Easy, Python, C++): Hashmap, checking if key exists
 - [290. Word Pattern](./notes/0290-word-patt.md) (Easy, C++): Hashmap, checking if key exists
-- [242. Valid Anagram]() (Easy, Python): Python one liner, 
+- [242. Valid Anagram](./notes/0242-valid-anagram.md) (Easy, Python): Python one liner
+- [49. Group Anagrams]() (Medium, Python): //TODO
+- [1. Two Sum](./notes/0001-two-sum.md) (Easy, C++): Hashmap
 
 ## Intervals
 
@@ -93,7 +97,7 @@ But I also love Python one liners.
 
 ## Binary Tree General
 
-- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, Python, C++): Recursive DFS (Python), iterative BFS using queue (C++)
+- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, Python, C++): Recursive DFS (Python), iterative BFS using queue (C++) // TODO
 - [100. Same Tree](./notes/0100-same-tree.md) (Easy, C++, Python): Recursive DFS (C++), iterative BFS using queue (Python)
 - [226. Invert Binary Tree](./notes/0226-invert-binary-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
 
