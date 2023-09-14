@@ -5,7 +5,7 @@ public:
         
         for (int i = 0; i < nums.size(); i++) {
             int complement = target - nums[i];
-            if ((complements.count(complement) > 0) && (complements[complement] != i)) {
+            if (complements.count(complement) > 0) {
                 return { complements[complement], i };
             }
             complements[nums[i]] = i;
