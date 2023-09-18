@@ -121,24 +121,7 @@ But I also love Python one liners.
 
 ## Heap
 
-- **215. Kth Largest Element in an Array [Medium, C++, Python, Java]**: There are three solutions.
-    - Using a min-heap (cpp): Whenever the heap size exceeds k, remove the smallest element.
-        After the loop, smallest element in the min-heap is the kth largest element.
-        Pro tip: even though `std::priority_queue` is a max-heap, you can use it like a min-heap by multiplying -1 when pushing and popping.
-    - `QuickSelect` (Python): Suppose we have the array `[6 5 2 1 4 3 4]`
-        1. Randomly choose a pivot `nums[rand() % nums.len]`. Let's say we got 4 as our pivot
-        2. Relative to the pivot, determine left, mid, and right array
-            `left = [ 2 1 3 ]`, `mid = [4 4]`, `right = [6 5]`
-            (We can do this in-place by swapping elements and keeping the index of `mid`, but it was too slow for some reason. Read my iPad notes)
-        3. Forget about finding the kth largest, we are finding (n - k)th smallest.
-            So if we are finding the 4th largest, we are in fact finding 7 - 4 = 3rd smallest
-            (e.g., in `[1 2 3 4]`, 3 is the 2nd largest and 4 - 2 + 1 = 3rd smallest. But because of zero-indexing, we consider it to be 2nd smallest with 1 being the 0th smallest element).
-        4. Let's say we are finding the 5th smallest (4). 3 elements in the `left`, 2 elements in the `mid`, so it has to be in the `mid` (i.e., pivot value).
-
-            What about finding 0nd smallest (1)? Since the length of `left` is 3 and it only contains values smaller than the pivot, call `QuickSelect` on the `left` to find its 2nd smallest.
-
-            What about finding 6th smallest (5)? Call `QuickSelect` on the right to find the 6th smallest... No! Find the 1st smallest in the `right`, where `1 = 6 - left.len - mid.len`.
-    - Sorting and choosing (Java): `QuickSelect` was only 40% beat, so I did `Arrays.sort` and returned `nums[nums.length - k]`. 80% beat. Wtf.
+- [**215. Kth Largest Element in an Array**](./notes/0215-kth-largest-elem-in-an-arr.md) (Medium, C++, Python, Java): Min-heap (C++), QuickSelect (Python), array sorting (Java)
 
 ## Bit Manipulation
 
