@@ -125,6 +125,8 @@ But I also love Python one liners.
 
 ## Bit Manipulation
 
+- [136. Single Number](./notes/0136-single-num.md) (Easy, C++): XOR
+
 ## Math
 
 ## 1D DP
