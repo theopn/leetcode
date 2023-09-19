@@ -51,6 +51,7 @@ But I also love Python one liners.
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
 - [45. Jump Game II](./notes/0045-jump-game-ii.md) (Medium, C++, Python): Two Pointers, DP
 - [274. H-Index](./notes/0274-h-idx.md) (Medium, C++, Python): Array sorting //TODO
+- [380. Insert Delete GetRandom O(1)]() (Medium, Python): OOP, random //TODO
 
 ## Two Pointers
 
@@ -120,6 +121,8 @@ But I also love Python one liners.
 ## Kadane's Algorithm
 
 ## Binary Search
+
+- [35. Search Insert Position](./notes/0035-search-ins-pos.md) (Easy, C++): Binary search
 
 ## Heap
 
