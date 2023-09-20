@@ -136,5 +136,7 @@ But I also love Python one liners.
 
 ## 1D DP
 
+- [**70. Climbing Stairs**](./notes/0070-climbing-stairs.md) (Easy, C++, Python): DP
+
 ## Multidimensional DP
 
