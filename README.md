@@ -138,6 +138,7 @@ But I also love Python one liners.
 
 - [**70. Climbing Stairs**](./notes/0070-climbing-stairs.md) (Easy, C++, Python): DP
 - [**198. House Robber**](./notes/0198-house-robber.md) (Medium, C++): DP
+- [139. Word Break](./notes/0139-word-break.md) (Medium, Python): DP, Substring
 
 ## Multidimensional DP
 
