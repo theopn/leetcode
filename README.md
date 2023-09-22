@@ -130,6 +130,7 @@ But I also love Python one liners.
 
 ## Bit Manipulation
 
+- [**67. Add Binary**](./notes/0067-add-binary.md) (Easy, C++): Binary addition, casting
 - [136. Single Number](./notes/0136-single-num.md) (Easy, C++): XOR
 
 ## Math
