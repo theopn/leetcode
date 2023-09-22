@@ -78,7 +78,7 @@ But I also love Python one liners.
     - Java: Use `HashMap<Character, Integer>`. It looks disgusting.
 - [205. Isomorphic Strings](./notes/0205-isomorphic-str.md) (Easy, Python, C++): Hashmap, checking if key exists
 - [290. Word Pattern](./notes/0290-word-patt.md) (Easy, C++): Hashmap, checking if key exists
-- [242. Valid Anagram](./notes/0242-valid-anagram.md) (Easy, Python): Python one liner
+- [242. Valid Anagram](./notes/0242-valid-anagram.md) (Easy, Python): Python one-liner
 - [**49. Group Anagrams**](./notes/0049-group-anagrams.md) (Medium, Python): Hashmap, string hashmap
 - [1. Two Sum](./notes/0001-two-sum.md) (Easy, C++): Hashmap
 - [202. Happy Number](./notes/0202-happy-num.md) (Easy, C++, Python): Hashmap, Floyd's tortoise and hare algorithm
@@ -134,6 +134,8 @@ But I also love Python one liners.
 - [136. Single Number](./notes/0136-single-num.md) (Easy, C++): XOR
 
 ## Math
+
+- [9. Palindrome Number](./notes/0009-palindrome-num.md) (Easy, Python, C++): Python one-liner
 
 ## 1D DP
 
