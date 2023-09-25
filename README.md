@@ -52,7 +52,7 @@ But I also love Python one liners.
 - [45. Jump Game II](./notes/0045-jump-game-ii.md) (Medium, C++, Python): Two Pointers, DP
 - [274. H-Index](./notes/0274-h-idx.md) (Medium, C++, Python): Array sorting //TODO
 - [380. Insert Delete GetRandom O(1)]() (Medium, Python): OOP, random //TODO
-- [**238. Product of Array Except Self**](./notes/0238-prod-of-arr-except-self.md): Prefix sum
+- [**238. Product of Array Except Self**](./notes/0238-prod-of-arr-except-self.md) (Medium, Python): Prefix sum
 
 ## Two Pointers
 
@@ -140,9 +140,9 @@ But I also love Python one liners.
 
 ## 1D DP
 
-- [**70. Climbing Stairs**](./notes/0070-climbing-stairs.md) (Easy, C++, Python): DP
-- [**198. House Robber**](./notes/0198-house-robber.md) (Medium, C++): DP
-- [139. Word Break](./notes/0139-word-break.md) (Medium, Python): DP, Substring
+- [**70. Climbing Stairs**](./notes/0070-climbing-stairs.md) (Easy, C++, Python): Tabulation
+- [**198. House Robber**](./notes/0198-house-robber.md) (Medium, C++): Tabulation
+- [139. Word Break](./notes/0139-word-break.md) (Medium, Python): Tabulation, Substring
 
 ## Multidimensional DP
 

@@ -2,7 +2,7 @@
 
 ## Relevant Skills
 
-- DP
+- Tabulation
 
 ## Approach
 
