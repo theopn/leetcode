@@ -9,7 +9,7 @@ It includes the explanations of my approach in English, Lua-style pseudocode, ru
 I prioritize approaching questions algorithmically.
 But I also love Python one liners.
 
-## Array String
+## Array/String
 
 - [88. Merge Sorted Array](./notes/0088-merge-sorted-arr.md) (Easy, Python): `Merge` subroutine from `MergeSort`
 - [27. Remove Element](./notes/0027-remove-elem.md) (Easy, Java): Pointless question
@@ -52,6 +52,7 @@ But I also love Python one liners.
 - [45. Jump Game II](./notes/0045-jump-game-ii.md) (Medium, C++, Python): Two Pointers, DP
 - [274. H-Index](./notes/0274-h-idx.md) (Medium, C++, Python): Array sorting //TODO
 - [380. Insert Delete GetRandom O(1)]() (Medium, Python): OOP, random //TODO
+- [**238. Product of Array Except Self**](./notes/0238-prod-of-arr-except-self.md): Prefix sum
 
 ## Two Pointers
 
