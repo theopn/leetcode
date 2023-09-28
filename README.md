@@ -44,9 +44,8 @@ But I also love Python one liners.
             k = k % len(nums)
             nums[:] = nums[-k:] + nums[:-k]
         ```
-- [**121. Best Time to Buy and Sell Stock**](./notes/0121-best-time-to-buy-and-sell-stock.md) (Easy, Python): Sliding window, Kadane's Algorithm
-- **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
-    You are buying it from yesterday and selling it today as long as it makes a positive profit.
+- [**121. Best Time to Buy and Sell Stock**](./notes/0121-best-time-to-buy-and-sell-stock.md) (Easy, Python, C++): Sliding window, Kadane's Algorithm
+- [122. Best Time to Buy and Sell Stock II](./notes/0122-best-time-to-buy-and-sell-stock-ii.md) (Medium, Python): Greedy algorithm
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
 - [45. Jump Game II](./notes/0045-jump-game-ii.md) (Medium, C++, Python): Two Pointers, DP
 - [274. H-Index](./notes/0274-h-idx.md) (Medium, C++, Python): Array sorting //TODO
