@@ -44,8 +44,7 @@ But I also love Python one liners.
             k = k % len(nums)
             nums[:] = nums[-k:] + nums[:-k]
         ```
-- **121. Best Time to Buy and Sell Stock [Easy, Python]**: Very simple, Sliding Window-ish solution.
-    Checking both the maximum profit and minimum element as you slide the window.
+- [**121. Best Time to Buy and Sell Stock**](./notes/0121-best-time-to-buy-and-sell-stock.md) (Easy, Python): Sliding window, Kadane's Algorithm
 - **122. Best Time to Buy and Sell Stock II [Medium, Python]**: An approach that is very simple, once you wrap your head around it.
     You are buying it from yesterday and selling it today as long as it makes a positive profit.
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
@@ -60,7 +59,7 @@ But I also love Python one liners.
 - **392. Is Subsequence [Easy, Python, C++]**: Straightforward, just keep the pointer to the subsequence.
 - [167. Two Sum II - Input Array Is Sorted](./notes/0167-two-sum-ii-input-arr-is-sorted.md) (Medium, Python, C++): Two Pointers
 - [11. Container With Most Water](./notes/0011-container-w-most-water.md) (Medium, Python): Two Pointers
-- [15. 3Sum](./) // TODO
+- [15. 3Sum](./notes/0015-3sum.md) (Medium, Python): Two pointers, Array sorting, Set
 
 ## Sliding Window
 
