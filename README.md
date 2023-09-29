@@ -14,24 +14,8 @@ But I also love Python one liners.
 - [88. Merge Sorted Array](./notes/0088-merge-sorted-arr.md) (Easy, Python): `Merge` subroutine from `MergeSort`
 - [27. Remove Element](./notes/0027-remove-elem.md) (Easy, Java): Pointless question
 - [26. Remove Duplicates from Sorted Array](./notes/0026-remove-dup-from-sorted-arr.md) (Easy, C++): Build-up for the 80.
-- **80. Remove Duplicates from Sorted Array II [Medium, C++]**: Same as 26, but keep up to 2 duplicate elements. Modifying the template from 26:
-    ```cpp
-    int removeDuplicates(vector<int>& nums) {
-        if (nums.size() <= 2) {
-            return nums.size();
-        }
-        int pos = 2;
-        for (int i = 2; i < nums.size(); i++) {
-            if (nums[i] != nums[pos - 2]) {
-                nums[pos] = nums[i];
-                pos++;
-            }
-        }
-        return pos;
-    }
-    ```
-    Hopefully you get the logic for removing duplicates from an array, keeping up to $n$ number of same elements.
-- [**169. Majority Element](./notes/0169-majority-elem.md) (Easy, C++, Python): Hashmap (C++), Boyer-Moore majority vote algorithm (Python)
+- [**80. Remove Duplicates from Sorted Array II**](./notes/0080-remove-dup-from-sorted-arr-ii.md) (Medium, C++): Remove dup template
+- [**169. Majority Element**](./notes/0169-majority-elem.md) (Easy, C++, Python): Hashmap (C++), Boyer-Moore majority vote algorithm (Python)
 - **189. Rotate Array [Medium, C++, Python]**: Python solution is the easy way of making a copy of the array and calculating a new index using modulus.
     C++ solution is more complicated, but easier way to think about rotating an array.
     - Consider `arr = [1 2 3 4 5 6 7]` and `rotated_by_3 = [5 6 7 1 2 3 4]`. At `k = 3`, you can separate the resultant array into `rotated_by_3 = [(5 6 7) (1 2 3 4)]`. `(5 6 7)` is `(7 6 5)` reversed and `(1 2 3 4)` is `(4 3 2 1)` reversed. Thus, reverse the whole array, and rotate sub-arrays to have the rotated array. For the implemented logic, look at my C++ solution.

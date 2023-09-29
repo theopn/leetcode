@@ -2,6 +2,9 @@
 
 ## Relevant Skills
 
+- Remove dup template
+    - Build up for 80. Remove Duplicates from Sorted Array II
+
 ## Approach
 
 0. Initialize a pointer at index 1
