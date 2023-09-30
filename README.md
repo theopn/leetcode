@@ -16,15 +16,7 @@ But I also love Python one liners.
 - [26. Remove Duplicates from Sorted Array](./notes/0026-remove-dup-from-sorted-arr.md) (Easy, C++): Build-up for the 80.
 - [**80. Remove Duplicates from Sorted Array II**](./notes/0080-remove-dup-from-sorted-arr-ii.md) (Medium, C++): Remove dup template
 - [**169. Majority Element**](./notes/0169-majority-elem.md) (Easy, C++, Python): Hashmap (C++), Boyer-Moore majority vote algorithm (Python)
-- **189. Rotate Array [Medium, C++, Python]**: Python solution is the easy way of making a copy of the array and calculating a new index using modulus.
-    C++ solution is more complicated, but easier way to think about rotating an array.
-    - Consider `arr = [1 2 3 4 5 6 7]` and `rotated_by_3 = [5 6 7 1 2 3 4]`. At `k = 3`, you can separate the resultant array into `rotated_by_3 = [(5 6 7) (1 2 3 4)]`. `(5 6 7)` is `(7 6 5)` reversed and `(1 2 3 4)` is `(4 3 2 1)` reversed. Thus, reverse the whole array, and rotate sub-arrays to have the rotated array. For the implemented logic, look at my C++ solution.
-    - I actually meant to do the above way in Python, but oh god, reversing a partial list is harder in Python. I somehow ended up with one-line, cryptic solution in Python. Here it is:
-        ```python
-        def rotate(self, nums: List[int], k: int) -> None:
-            k = k % len(nums)
-            nums[:] = nums[-k:] + nums[:-k]
-        ```
+- [**189. Rotate Array**](./notes/0189-rotate-arr.md) (Medium, C++, Python): Modulus (Python), Array reversal (C++)
 - [**121. Best Time to Buy and Sell Stock**](./notes/0121-best-time-to-buy-and-sell-stock.md) (Easy, Python, C++): Sliding window, Kadane's Algorithm
 - [122. Best Time to Buy and Sell Stock II](./notes/0122-best-time-to-buy-and-sell-stock-ii.md) (Medium, Python): Greedy algorithm
 - [55. Jump Game](./notes/0055-jump-game.md) (Medium, C++, Python): Two Pointers. Both solutions use the same logic.
