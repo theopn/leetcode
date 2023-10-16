@@ -37,7 +37,7 @@ But I also love Python one liners.
 
 ## Sliding Window
 
-- **209. Minimum Size Subarray Sum [Medium, C++, Java, Python]**: Classic Sliding Window problem. Read the comment on the C++ code.
+- [**209. Minimum Size Subarray Sum**](./notes/0209-min-size-subarr-sum.md: Sliding window
 - [**3. Longest Substring Without Repeating Characters**](./notes/0003-longest-substr-wo-repeating-char.md) (Medium, C++): Sliding window, Hashmap
 - [30. Substring with Concatenation of All Words](./notes/0030-substr-w-concate-of-all-words.md) (Hard, Python): Sliding Window, Hashmap, Substring
 
