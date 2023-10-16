@@ -25,11 +25,12 @@ But I also love Python one liners.
     Both C++ and Python solutions are doing the same thing, but C++ solution is more efficient (same big-O bound) AND more readable
 - [380. Insert Delete GetRandom O(1)](./notes/0380-ins-del-getrand-o1.md): OOP, random
 - [**238. Product of Array Except Self**](./notes/0238-prod-of-arr-except-self.md) (Medium, Python): Prefix sum
+- [134. Gas Station](./notes/0134-gas-station.md) (Medium, C++): //TODO
 
 ## Two Pointers
 
 - [125. Valid Palindrome](./notes/0125-valid-palindrome.md) (Easy, C++): Two Pointers
-- **392. Is Subsequence [Easy, Python, C++]**: Straightforward, just keep the pointer to the subsequence.
+- [**392. Is Subsequence**](./notes/0392-is-subsequence.md) (Easy, Python, C++): Two Pointers
 - [167. Two Sum II - Input Array Is Sorted](./notes/0167-two-sum-ii-input-arr-is-sorted.md) (Medium, Python, C++): Two Pointers
 - [11. Container With Most Water](./notes/0011-container-w-most-water.md) (Medium, Python): Two Pointers
 - [15. 3Sum](./notes/0015-3sum.md) (Medium, Python): Two pointers, Array sorting, Set
