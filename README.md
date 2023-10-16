@@ -45,11 +45,7 @@ But I also love Python one liners.
 
 ## Hashmap
 
-- **383. Ransome Note [Easy, C++, Python, Java]**: Really straightforward question, and I did all three languages to give you the example of hashmap.
-    - C++: `std::unordered_map` is the hashmap with $O(1)$ average search, insertion, and deletion, time (16ms 63% beat), and `std::map` is a self balanacing BST with $O(\log (n))$ time (27ms 22% beat).
-        Also one nice thing, the default values of the `Operator` class will be initialized to zero, so no need to call default value method like with Python and Java.
-    - Python: Use dictionary, and utilize `dict.get(key, default_value)` for the case where dictionary key hasn't been initialized
-    - Java: Use `HashMap<Character, Integer>`. It looks disgusting.
+- [**383. Ransome Note**](./notes/0383-ransome-note.md): Hashmap
 - [205. Isomorphic Strings](./notes/0205-isomorphic-str.md) (Easy, Python, C++): Hashmap, checking if key exists
 - [290. Word Pattern](./notes/0290-word-patt.md) (Easy, C++): Hashmap, checking if key exists
 - [242. Valid Anagram](./notes/0242-valid-anagram.md) (Easy, Python): Python one-liner
