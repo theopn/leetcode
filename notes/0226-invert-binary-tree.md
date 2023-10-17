@@ -2,14 +2,12 @@
 
 ## Relevant Skills
 
-- Tree traversal
-- Recursion
-- DFS (stack)
-- BFS (queue)
+- Recursive DFS
+- Iterative BFS
 
 ## Approach
 
-Recursive approach:
+DFS:
 
 0. if current node is nil, return nil
 0. Call self in left
@@ -20,6 +18,8 @@ Recursive approach:
 ## Optimization
 
 ## Pseudocode
+
+DFS:
 
 ```lua
 function invert_tree(root)

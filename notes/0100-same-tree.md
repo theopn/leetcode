@@ -2,8 +2,8 @@
 
 ## Relevant Skills
 
-- Tree traversal
-- Recursion
+- Recursive DFS
+- Iterative BFS using queue
 
 ## Approach
 

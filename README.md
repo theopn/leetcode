@@ -72,10 +72,10 @@ But I also love Python one liners.
 
 ## Binary Tree General
 
-- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, Python, C++): Recursive DFS (Python), iterative BFS using queue (C++) // TODO
-- [100. Same Tree](./notes/0100-same-tree.md) (Easy, C++, Python): Recursive DFS (C++), iterative BFS using queue (Python)
-- [226. Invert Binary Tree](./notes/0226-invert-binary-tree.md) (Easy, C++, Python): Tree traversal, recursion, DFS (stack), BFS (queue)
-- [101. Symmetric Tree](./notes/0101-symmetric-tree.md) (Easy, Python): Recursive DFS
+- [104. Maximum Depth of Binary Tree](./notes/0104-max-depth-of-binary-tree.md) (Easy, Python, C++): Recursive DFS (Python), iterative BFS using queue (C++)
+- [100. Same Tree](./notes/0100-same-tree.md) (Easy, C++, Python): Recursive DFS (C++, Python), (TODO: iterative BFS using queue)
+- [226. Invert Binary Tree](./notes/0226-invert-binary-tree.md) (Easy, C++): Recursive DFS (C++), (TODO: iterative BFS using queue)
+- [101. Symmetric Tree](./notes/0101-symmetric-tree.md) (Easy, Python): Recursive DFS, (TODO: iterative BFS using queue)
 
 ## Binary Tree BFS
 
