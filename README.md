@@ -26,6 +26,7 @@ But I also love Python one liners.
 - [380. Insert Delete GetRandom O(1)](./notes/0380-ins-del-getrand-o1.md): OOP, random
 - [**238. Product of Array Except Self**](./notes/0238-prod-of-arr-except-self.md) (Medium, Python): Prefix sum
 - [134. Gas Station](./notes/0134-gas-station.md) (Medium, C++): //TODO
+- [135. Candy](./notes/0135-candy.md: Greedy algorithm
 
 ## Two Pointers
 
