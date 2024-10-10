@@ -16,3 +16,11 @@ I would trust solutions in this directory more since they are more recent and I 
 
 - ~~3110. Score of a String~~ (Easy, 2024-06-01 Daily Q): Iterate [0, n - 1) and accumulate abs(s[i] - s[i + 1])
 
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## String
+|  |
+| ------- |
+| [3379-score-of-a-string](https://github.com/theopn/leetcode/tree/master/3379-score-of-a-string) |
+<!---LeetCode Topics End-->
