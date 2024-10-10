@@ -1,7 +1,13 @@
 # My Leetcode Solutions
 
-Here is the list of questions I solved along with the language(s) used and relevant topics.
-Questions and solutions I believe to be important or unique are bolded.
+## This Directory is No Longer Updated
+
+In this directory, you can find answers and explanations for some of the questions of [Top Interview 150](https://leetcode.com/studyplan/top-interview-150/) problem set I solved in 2023.
+I moved on from the problem set and this way of organizing problem.
+Some of them may overlap with the solutions in the [parent directory](./README.md).
+I would trust them more since they are more recent and hopefully I developed a better problem solving skill over time.
+
+## Back to the README
 
 There are detailed explanations in the [notes directory](./notes/).
 It includes the explanations of my approach in English, Lua-style pseudocode, runtime analysis, and relevant programming language skills that could be used.
