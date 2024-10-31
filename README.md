@@ -14,10 +14,18 @@ I would trust solutions in this directory more since they are more recent and I 
 
 The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-2.0).
 
+## Array
+
+- ~1550. Three Consecutive Odds~ (Easy, 2024-07-01 Daily Q): Iterate the array while keeping the consecutive odd count, return if the count is 3
+
 ## Substring & Subarray
 
 - ~3110. Score of a String~ (Easy, 2024-06-01 Daily Q): Iterate [0, n - 1) and accumulate abs(s[i] - s[i + 1])
 - ~344. Reverse String~ (Easy, 2024-06-02 Daily Q): Iterate [0, floor(n / 2) and swap s[n - i -1] and s[i]
+
+## Hash Table
+
+- ~350. Intersection of Two Arrays II~ (Easy, 2024-07-02 Daily Q): Make a Counter hash table of one array, iterate through the others and add elements in the table. Decrement the count
 
 ## Sorting
 
@@ -30,6 +38,15 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     4. Iterate through elements in `arr2`
     5. While `count[arr2[i]]` is greater than 0, decrement the count and append `arr2[i]` to the output
     6. To append any remaining element, iterate `[0, k]` and append `i` with `count[i]` greater than 0
+
+## Linked List
+
+- 2181. Merge Nodes in Between Zeros (Medium, 2024-07-04 Daily Q)
+    - You can modify the existing list (see the C++ solution), but I find making a new list much easier
+    1. Create a sentinel node and make a copy of it for the return value
+    2. Iterate through the list. If the value is 0, set the next of sentinel to the accumulated sum so far
+    3. Else, accumulate the value
+    4. Return `sentinel_save.next.next` since they do not want the first 0 in the list
 
 ## Tree
 
