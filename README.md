@@ -22,6 +22,13 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 
 - ~3110. Score of a String~ (Easy, 2024-06-01 Daily Q): Iterate [0, n - 1) and accumulate abs(s[i] - s[i + 1])
 - ~344. Reverse String~ (Easy, 2024-06-02 Daily Q): Iterate [0, floor(n / 2) and swap s[n - i -1] and s[i]
+- 1395. Count Number of Teams (Medium 2024-07-29 Daily Q)
+    1. Iterate from `0` to `n -1` , let the current index be `j`
+    2. At `j`, find the number of elements smaller/greater than `rating[j]` in (0, j] (”left” of `j`. You can find one of them and subtract it from `j` to find the other since all elements are unique)
+    3. At `j`, find the number of elements smaller/greater than `rating[j]` in [j + 1, n) (”right” of `j`. You can find one of them and subtract it from `n - 1 - j` to find the other since all elements are unique)
+    4. Multiplying the number of elements smaller than `rating[j]` in (0, j] to the number of elements greater than `rating[j]` in [j + 1, n) gives you the permutation of strictly increasing sub-sequence when we fix the middle element to `rating[j]`
+    5. Multiplying the rest two gives you the permutation of strictly decreasing sub-sequence
+    6. Add those two the total number of `sub-sequences` at each `j`
 
 ## Hash Table
 
@@ -38,6 +45,14 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     4. Iterate through elements in `arr2`
     5. While `count[arr2[i]]` is greater than 0, decrement the count and append `arr2[i]` to the output
     6. To append any remaining element, iterate `[0, k]` and append `i` with `count[i]` greater than 0
+- 2418. Sort the People (Easy, 2024-07-22 Daily Q)
+    1. Follow the standard quick sort template above, but take an extra parameter `names` along with `heights`
+    2. All comparisons are done with `heights`, but also make `leftNames`, `midNames` , and `rightNames`, and whenever we append `height[i]` to `left` , `mid`, or `right`, append `names[i]` to the corresponding arrays
+    3. Since we are sorting in reverse order, return `quicksort(right, rightNames + midNames + quicksort(left, leftNames)`
+- **1636. Sort Array by Increasing Frequency** (Easy, 2024-07-23 Daily Q)
+    - Make a counter and use a built-in sorting algorithm with lambda comparator. A worthy practice
+- **912. Sort an Array** (Medium, 2024-07-25 Daily Q)
+    - Either merge sort or RANDOMIZED quick sort works. A good practice to learn efficient sorting algorithms
 
 ## Linked List
 
@@ -65,6 +80,14 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     7. Recursively call the helper with `mid + 1` and `hi`, assign the result to `node.right`
     8. Return the `node`
     9. Call this helper with `0` and the size of sorted array minus 1 in the main function
+- **2196. Create Binary Tree From Descriptions** (Medium, 2024-07-15 Daily Q)
+    1. Create two hash tables, one that maps integer (value of the node) to a `TreeNode` object, and one that maps integer (value of the node) to a boolean to track if it is a child of another node
+    2. Iterate through the `descriptions`
+    3. If the parent node value does not exist in the hash table, make a new one and add it to the table
+    4. If the child node value does not exist in the hash table, make a new one and add it to the table
+    5. Set the child node according to the `isLeft` value
+    6. Add the child node to the `isChild` hash table
+    7. Once we are done creating a tree, iterate through the `parent` of the `descriptions` again. Look for a node where `isChild[parent] == false`, because the root is not a child of any node
 
 ## Graph
 
@@ -74,6 +97,27 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     - Compare `edges[0][0]` with `edges[1][0]` and `edges[1][1]`. If it matches either of them, it is the center
     - Otherwise, `edges[0][1]` is the center node
 
+### Shortest Path
+
+- **1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance** (Medium, 2024-07-26 Daily Q)
+    1. Run Floyd-Warshall using the standard template above
+    2. For each node, iterate through the matrix, find reachable cities within `distanceThreshold`, update if it can reach the minimum number of cities
+- **2976. Minimum Cost to Convert String I** (Medium, 2024-07-27 Daily Q)
+    - I thought iterating through the number of characters and calling Dijkstra at each `source[i]` and `target[i]` should be faster. But it was significantly slower, even after I memoized the result of Dijkstra in case we get the same `source` to `target` pair (in fact, I would get TLE without this optimization). So Floyd-Warshall it is. For the Dijkstra solution, reference my C++ submission
+    1. Follow the standard Floyd-Warshall template with 26 x 26 matrix and `ord(char) - 97` conversion. One thing to be careful about is that they can give you different cost for the same pairs ("a -> b costs 2" ... "a -> b costs 3"), so take the minimum cost when initializing the matrix
+    2. Once we complete the Floyd-Warshall, accumulate the `dist[source[i] - 97][target[i] - 97]`. If we encounter infinity at any point, it means that the conversion is not possible, return -1
+- **2045. Second Minimum Time to Reach Destination** (Hard, 2024-07-28 Daily Q)
+    1. Build the adjacency list. Since the graph is undirected/bi-directional, do not forget `adj[v].append(u)`
+    2. Maintain two distance array (`dist1` and `dist2`) for Dijkstra. Initially, push `(0, 1)` (1 being the starting node) to the queue and set `dist1[1] = 0`. Do not forget that this changes the `if p == dist[u]` optimization within the while loop to `if p == dist1[u] or p == dist2[u]` (or entirely omit this check)
+    3. The `priority` popped in each while loop iteration shall be called `timesofar` for the sake of clarity. Following step is how to calculate the `candidate` , which can be calculated before the for loop iterating adjacent nodes since there is no weight
+    4. If `(timesofar // change)` (i.e., how many times light has changed so far) is odd, it means we are stuck at the red light. The `candidate` would be `change * (timesofar // change + 1) + time` . If it is even, `candidate` is simply the addition of `time` and `timesofar`
+    5. In the adjacent node for loop, if `candidate< dist1[v]` , move `dist1[v]` to `dist2[v]` before updating `dist[1]` and pushing the new pair to the queue.
+    6. If `candidate < dist2[v] and dist1[v] != candidate` (i.e., it is the 2nd shortest path), update `dist2[v]` with `candidate` and push the `(candidate, v)` pair to the queue
+    7. Return `dist2[n]`
+
+## Simulation
+
+- ~1598. Crawler Log Folder~ (Easy, 2024-07-10 Daily Q): If the operation is "./", skip the iteration. If it is "../", check if the current number of operations is 0 (if it is, keep it 0) and decrement. If it is anything else, increase the number of operations.
 
 <!---LeetCode Topics Start-->
 # LeetCode Topics
