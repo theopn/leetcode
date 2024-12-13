@@ -29,10 +29,18 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     4. Multiplying the number of elements smaller than `rating[j]` in (0, j] to the number of elements greater than `rating[j]` in [j + 1, n) gives you the permutation of strictly increasing sub-sequence when we fix the middle element to `rating[j]`
     5. Multiplying the rest two gives you the permutation of strictly decreasing sub-sequence
     6. Add those two the total number of `sub-sequences` at each `j`
+- 1508. Range Sum of Sorted Subarray Sums (Medium, 2024-08-04 Daily Q):
+    - Brute force works
+    1. Build an array for subarray sums (size `n * (n + 1) / 2`)
+    2. Sort the subarray sum array
+    3. Iterate `[left - 1, right)`, accumulate `(accumulated_sum + subarraySum[i] % (1e9 + 7)` to prevent overflow
 
 ## Hash Table
 
 - ~350. Intersection of Two Arrays II~ (Easy, 2024-07-02 Daily Q): Make a Counter hash table of one array, iterate through the others and add elements in the table. Decrement the count
+- ~1460. Make Two Arrays Equal by Reversing Subarrays~ (Easy, 2024-08-03 Daily Q): This is only possible when two arrays have the same members, so… choose sorted, Counter, hash table, or whichever way is the most convenient for you.
+- ~2053. Kth Distinct String in an Array~ (Easy, 2024-08-05 Daily Q): Build a hash table/Counter mapping the frequency of each string, and iterate through the arr and find kth distinct string
+- ~1. Two Sum~ (Easy, 2024-08-27 Daily Q, but it was originally 1514. Path with Maximum Probability): Build a hash table for `num[i]` to `i`, iterate through the nums and check if target - nums[i] exists
 
 ## Sorting
 
@@ -88,6 +96,9 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     5. Set the child node according to the `isLeft` value
     6. Add the child node to the `isChild` hash table
     7. Once we are done creating a tree, iterate through the `parent` of the `descriptions` again. Look for a node where `isChild[parent] == false`, because the root is not a child of any node
+- 145. Binary Tree Postorder Traversal (Easy, 2024-08-25 Daily Q): LRN
+- 590. N-ary Tree Postorder Traversal (Easy, 2024-08-26 Daily Q):
+    - Remember that postorder in binary tree is LRN, meaning in n-ary tree, we can visit children node in order then visit the node
 
 ## Graph
 
@@ -96,6 +107,14 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     - Key point 2: the center node is either `edges[n][0]` or `edges[n][1]`
     - Compare `edges[0][0]` with `edges[1][0]` and `edges[1][1]`. If it matches either of them, it is the center
     - Otherwise, `edges[0][1]` is the center node
+- **1514. Path with Maximum Probability** (Medium, was August 27th Daily Q then Leetcode changed it to 2024-08-31 Daily Q and substituted Two Sum for the 27th??):
+    - Use the standard Dijkstra template with the following changes
+    1. Initialize `dist` array with `0.0` instead of infinity
+    2. Instead of min-heap, use max-heap priority queue
+    3. Push `1.0` as a key for the starting node
+    4. When `dist[node]` is 0.0 or 1.0, do not use that for the calculation of the `candidate` (which actually is the probability, and multiplying 0.0 or 1.0 would not go very well). Let the `candidate`be just the `weight` of the `node` and `v`
+    5. Otherwise, set the candidate to the product of `dist[node]` and the `weight` between the `node` and `v`, and if that is GREATER than `dist[v]`. update the distance array accordingly and push it to the queue.
+    6. Return `dist[end_node]`
 
 ### Shortest Path
 
@@ -122,6 +141,98 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 ## String
 
 - ~2678. Number of Senior Citizens~ (Easy, 2024-08-01 Daily Q): Parse the age part
+
+## Sliding Window
+
+- 2134. Minimum Swaps to Group All 1's Together II (Medium, 2024-08-02 Daily Q):
+    1. Let the window size be the number of 1’s in the array
+    2. Append the first `windowsize` elements of the array to maintain the circular property
+    3. First, count the number of 0’s from `i = 0 to windowsize`
+    4. Iterate from `head = 0 to length of nums`, in each iteration, add zero count at the tail (`head + windowsize`) and subtract zero count at the `head`. Update the minimum zero if the current window contains the minimum zero count
+    5. This minimum zero count is the minimum swap to group all 1’s together
+
+## Matrix
+
+- 840. Magic Squares In Grid (Medium, 2024-08-09 Daily Q):
+    1. Iterate from `0` to `m` (`i`), and within that, iterate from `0` to `n` (`j`) . For each iteration, the helper function arguments are `grid`, `i`, and `j`. Within the helper functions, iterate from `i` to `i + 2` and `j` to `j + 2`.
+    2. Define a function to check if numbers in the current matrix is with in [1, 9]
+    3. Define a function to check if there are any duplicate values. Make a boolean array with size 10 filled with false to achieve this.
+    4. Define a function to check if the grid is indeed a magic square.
+        ```
+        // rowsum[0] += grid[m + 0][col + 0-2]
+        // rowsum[1] += grid[m + 1][col + 0-2]
+        // rowsum[2] += grid[m + 2][col + 0-2]
+        for i = 0 to 2:
+            for j = 0 to 2:
+                rowsum[i] += grid[m + i][n - j]
+
+        // colsum[0] += grid[m + 0-2][col + 0]
+        // colsum[1] += grid[m + 0-2][col + 1]
+        // colsum[2] += grid[m + 0-2][col + 2]
+        for j = 0 to 2:
+            for i = 0 to 2:
+                colsum[j] += grid[m + i][n + j]
+
+        // diasum[0] += grid[m + 0-2][col + 0-2]
+        // diasum[1] += grid[m + 0-2][col + 2-0]
+        for i = 0 to 2:
+            diasum[0] += grid[m + i][col + i]
+        for i = 0 to 2:
+            diasum[1] += grid[m + i][col + (2 - i)]
+
+        return rowsum[0] == rowsum[1] && ... && rowsum[2] == colsum[2] && ...
+        ```
+    5. If we pass all three checks, yay, we found the magic square!
+
+## Binary Search
+
+- 719. Find K-th Smallest Pair Distance (Hard, 2024-08-14 Daily Q):
+    1. Sort `nums`
+    2. Find the largest difference and the smallest difference (upon research, I just made this 0 and it worked) to `hi` and `lo` values of the binary search
+    3. Perform binary search
+    4. After finding `mid` , run it through the auxilary function `countSmaller`
+    5. In `countSmaller`, use sliding window technique to count the number of pairs where the difference is smaller than the parameter (i.e., `mid`)
+        ```python
+        E.g., parameter = 30
+        [10, 20, 30, 40, 50]
+          l               r
+        50 - 10 > 30, thus decrement r
+        [10, 20, 30, 40, 50]
+          l          r
+        40 - 10 > 30, thus add r - l to the count
+        ```
+    6. If the return value of `countSmaller` is greater than `k`, move `hi`. Return `lo` after the binary search
+
+## Greedy
+
+- 860. Lemonade Change (Easy, 2024-08-15 Daily Q):
+    1. Keep track of number of $5 and $10. $20 is not needed since we will never use that as a change
+    2. Iterate through the `bills`
+    3. If we receive $5, increment the `numFive`, if we receive $10, check the number of $10 and see if we can decrement `numFive` and increment `numTen`
+    4. If we receive $20, we can give eiither $10 + $5 or $5 * 3. Check $10 + $5 first since that is always helpful in the long run
+- 624. Maximum Distance in Arrays (Medium, 2024-08-16 Daily Q):
+    - The key point is that we only need to consider the first and last element of each array and update the maximum distance greedily
+    1. Let the `currMin` and `currMax` be the first and last element of the first array. Let `maxDist` be 0
+    2. Iterate from the second array to the last array
+    3. Get the first and last element of the current array, compute `currMax - currentFirstElement` and `currentLastElement - currMin` and find the bigger of two (let this be `currentDist`
+    4. Compare `currentDist` with `maxDist` and update `maxDist` accordingly
+    5. Update `currMin` and `currMax` to the first and last element of the current array, if needed
+    6. Return the final `maxDist`
+
+## Dynamic Programming
+
+- 264. Ugly Number II (Medium, 2024-08-18 Daily Q):
+    1. Define an array `dp` and let the first element be 1
+    2. Define pointers for multiples of 2, 3, and 5
+    3. Iterate from 1 to `n`, find the next “Ugly Number” candidate by multiplying 2, 3, or 5 to the `dp[<multiple pointer>` (e.g., `multiple2Candidate = dp[multiple2Ptr] * 2`)
+    4. Assign the minimum of three to the `dp[i]` and advance the pointer to it by one
+    5. Return `dp[n - 1]`
+
+## Bit
+
+- 476. Number Complement (Easy, 2024-08-22 Daily Q):
+    1. Find the length of the bit representation of `num` and make a bitmask
+    2. Return XOR of the `num` and the bitmask
 
 <!---LeetCode Topics Start-->
 # LeetCode Topics
