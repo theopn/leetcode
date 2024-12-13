@@ -119,6 +119,10 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 
 - ~1598. Crawler Log Folder~ (Easy, 2024-07-10 Daily Q): If the operation is "./", skip the iteration. If it is "../", check if the current number of operations is 0 (if it is, keep it 0) and decrement. If it is anything else, increase the number of operations.
 
+## String
+
+- ~2678. Number of Senior Citizens~ (Easy, 2024-08-01 Daily Q): Parse the age part
+
 <!---LeetCode Topics Start-->
 # LeetCode Topics
 ## String
