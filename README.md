@@ -45,6 +45,18 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 - 884\. Uncommon Words from Two Sentences (Easy, 2024-09-17 Daily Q):
     1. add every space-separated words to the counter
     2. iterate over the counter and return unique words (count 1)
+- 1813\. Sentence Similarity III (Medium, 2024-10-06 Daily Q):
+    1. Tokenize `sentence1` and `sentence2`. Let the arrays containing tokenized words be `words1` and `words2`
+    2. Let `m = words1.size`, `n = word2.size`
+    3. Count the number of the common prefix words (for [0, `min(m, n)`), count until `words1[i] != words2[i]`
+    4. Count the number of the commn suffix words (initialize `i = m - 1, j = n - 1`, iterate while `i >= 0 and j >= 0 and words1[i] == words2[j]`)
+    5. If the sum of two counts are equal to the length of the shorter string, it means the shorter string is the combination of the common prefix and the common suffix. If the sum is greater than the length of the shorter string, the common prefix and suffix overlaps (e.g., `aaa` and `aaaa`). Either way, they can have words inserted in the middle and form the longer sentence
+- 1545\. Find Kth Bit in Nth Binary String (Medium, 2024-10-19 Daily Q):
+    - Brute force works
+    1. Initialize `s` as `"0"`
+    2. Iterate `i = [1, n)`, append `"1"` and save the string to `tmp`
+    3. From `j = [tmp.len - 2, 0]`, append `"1"` to the `s` if `tmp[j] == 0` , `"0"` otherwise
+    4. Break out of the loop if the current length of the `s` is greater than `k`
 
 ## Hash Table
 
@@ -53,6 +65,16 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 - ~~2053. Kth Distinct String in an Array~~ (Easy, 2024-08-05 Daily Q): Build a hash table/Counter mapping the frequency of each string, and iterate through the arr and find kth distinct string
 - ~~1. Two Sum~~ (Easy, 2024-08-27 Daily Q, but it was originally 1514. Path with Maximum Probability): Build a hash table for `num[i]` to `i`, iterate through the nums and check if target - nums[i] exists
 - 1684\. Count the Number of Consistent Strings (Easy, 2024-09-12 Daily Q): build a hash table (or even better, boolean array of size 26) and count number of “consistent” strings
+- 1331\. Rank Transform of an Array (Easy, 2024-10-02 Daily Q):
+    1. Define a hash table `ranks` and iterate the sorted copy of `arr`. Define a variable `rank` initialized to 1
+    2. If `ranks[sorted_arr_copy[i]]` is nil or 0, assign `rank` to it and increment `rank` . If the hash table already contains value at the given index, it means that the number is not unique; do nothing
+    3. Define a new array and assign `rank[arr[i]]`
+- 2501\. Longest Square Streak in an Array (Medium, 2024-10-28 Daily Q):
+    1. Define a set of all elements in the array
+    2. Iterate through the `num in nums` , set the current `num` to the starting point (variable named `curr`
+    3. Iterate until we find the `curr^2` in the set. If found, update `curr` to `curr^2`
+    4. If `curr^2` becomes larger than 1e5, break out of the loop
+    5. Record the number of iteration as `streaks` . Keep track of max `streaks`
 
 ## Sorting
 
@@ -129,6 +151,23 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     1. Define a DFS algorithm where a) if we run out of LL nodes, since it means the entire LL is present in the tree, return true b) if we run out of tree nodes, return false, since we reach the leaf without matching the LL fully c) check if the values of the LL node and tree node match d) if so, recursively return DFS(next LL node, left children of the tree node) OR DFS(next LL node, right children of the tree node)
     2. In the main function, if root is not null, call DFS on the current tree node and LL head
     3. If that did returns false, recursively return MAIN(LL head, left children of the tree node) OR MAIN(LL head, right children of the tree node)
+- 2583\. Kth Largest Sum in a Binary Tree (Medium, 2024-10-22 Daily Q):
+    - DFS approach; barely avoids TLE with C++ loop unrolling and the`sync_with_stdio` tricks
+    1. Define a global hashmap `levelSumMap`  and a helper function `getLevelSum` that takes `node, currLevel` as arguments. If `node` is nil, return. Accumulate `node.val` to `levelSumMap[currLevel]`. Recursively call `getLevelSum` with `node.left and right, currLevel + 1`
+    2. Call `getLevelSum` with `currLevel == 1` in the main function
+    3. Define a max-heap and push the values of `levelSumMap` to it
+    4. Pop `k - 1` times, if the heap becomes empty while popping, return -1. Return the top element of the heap
+    - BFS approach; much faster
+    1. Follow the BFS (level order traversal) template above
+    2. If the size of priority queue is less than `k`, return -1
+    3. Pop the priority queue `k - 1` time and return the top element
+- 951. Flip Equivalent Binary Trees (Medium, 2024-10-24 Daily Q):
+    1. If both root are nil, return true
+    2. If only one of the root are nil, return false
+    3. If the values of the root do not match, return false
+    4. Case 1 is having children of both node match as they are (without flipping, i.e., `flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)`
+    5. Case 2 is having children of both node match after flipping (i.e., `flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left)`
+    6. If one of two cases satisfy, you can make an “equivalent” binary sub-tree
 
 ## Graph
 
@@ -223,6 +262,11 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 - **2326. Spiral Matrix IV** (Medium, 2024-09-09 Daily Q):
     1. initialize the matrix with -1
     2. follow the basic principle of spiral matrix traversal, but instead of traversing `m * n` times, traverse until we run out of linked list node
+- 2684\. Maximum Number of Moves in a Grid (Medium, 2024-10-29 Daily Q):
+    - Perform a matrix BFS with following modifications, return the largest value in the `dist` array
+    1. The starting nodes are all cells at the first column (i.e., `for i = 0 to m - 1, (i, 0)`)
+    2. The column direction is always adding 1, the row direction is `{-1, 0, 1}`
+    3. When checking visit-able adjacent cell, add `grid[row][co] < grid[adjrow][adjcol]`
 
 ## Binary Search
 
@@ -266,12 +310,63 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 
 ## Dynamic Programming
 
+Longest Increasing/Decreasing Sequence (solution for 300. Longest Increasing Subsequence):
+
+```cpp
+int lengthOfLIS(vector<int>& nums) {
+    int n = nums.size();
+
+    vector<int> dp(n, 1);
+
+    int lis = 1;
+    for (int i = 0; i < n; i++) {      // LDS: for (int i = n - 1; i >= 0; i--)
+        for (int j = 0; j < i; j++) {  // LDS: for (int j = i + 1; j < n; j++)
+            if (nums[i] > nums[j]) {
+                dp[i] = max(dp[i], dp[j] + 1);
+            }
+        }
+        lis = max(lis, dp[i]);
+    }
+    return lis;
+}
+```
+
 - 264\. Ugly Number II (Medium, 2024-08-18 Daily Q):
     1. Define an array `dp` and let the first element be 1
     2. Define pointers for multiples of 2, 3, and 5
     3. Iterate from 1 to `n`, find the next “Ugly Number” candidate by multiplying 2, 3, or 5 to the `dp[<multiple pointer>` (e.g., `multiple2Candidate = dp[multiple2Ptr] * 2`)
     4. Assign the minimum of three to the `dp[i]` and advance the pointer to it by one
     5. Return `dp[n - 1]`
+- 1277\. Count Square Submatrices with All Ones (Medium, 2024-10-27 Daily Q):
+    - We can keep track of number of continuous 1 in end of the bottom edge of the square at the given cell using tabulation technique
+    ```jsx
+    mx = | 1 | 1 | 1 |
+         | 1 | 1 | 1 |
+         | 1 | 1 | 0 |
+
+    dp = | 1 | 1 | 1 |
+         | 1 | 2 | 2 |
+         | 1 | 2 | 3 |
+    can produce 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 3 = 14 "all 1 matrices"
+
+    mx = | 1 | 1 | 1 |
+         | 1 | 1 | 1 |
+         | 1 | 1 | 0 |
+
+    dp = | 1 | 1 | 1 |
+         | 1 | 2 | 2 |
+         | 1 | 2 | 0 |
+    can produce 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 0 = 11 "all 1 matrices"
+    ```
+    1. Define a matrix `dp` of size `m + 1 X n + 1`
+    2. Iterate through the elements in the `matrix`
+    3. If the `matrix[i][j]` is 1, set the `dp[i + 1][j + 1]` to `1 + min(dp[i][j], dp[i + 1][j], dp[i][j + 1])` (left above diagonal, above, left, respectively)
+    4. Sum up the values of all `dp` cells and return
+- 1671\. Minimum Number of Removals to Make Mountain Array (Hard, 2024-10-30 Daily Q):
+    1. Compute LIS DP array
+    2. Compute LDS DP array
+    3. For each index, if `nums[i]` is a valid mountain peak (i.e., `lis[i] > 1 && lds[i] > 1`), `n - lis[i] - lds[i] + 1` (`+ 1` since `lis[i]` and `lds[i]` are both counting `nums[i]` as part of LIS/LDS) is the number of removals to make a mountain array with `nums[i]` as the peak
+    4. Keep track of the minimum removals
 
 ## Bit
 
@@ -311,6 +406,10 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     1. build a trie that keeps track of the number of visits per each node during insertion
     2. walk the trie again with each word
     3. accumulate the number of visits, which is the total prefix scores
+- **1233. Remove Sub-Folders from the Filesystem** (Medium, 2024-10-25 Daily Q):
+    1. Build a Trie, treating each components in the `f in folder` as a single character (`f.split(”/”)`)
+    2. Make a method `isSubfolder` in the Trie class, which is a modified search method that returns false `if node.end and i > length of the components in the current folder`
+    3. Add `f in folder` that passes `isSubfolder` test to the non-subfolder list
 
 ## Queue
 
@@ -322,7 +421,64 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 ## Stack
 
 - ~~1381. Design a Stack With Increment Operation~~ (Medium, 2024-09-30 Daily Q): Keep track of size and maxSize. push and pop are as trivial as stack[size++] = x and size--; return stack[size] after checking the size conditions for each operation (i.e., whether size exceeds maxSize and whether the size == 0). Increment is trivial.
+- 2696\. Minimum String Length After Removing Substrings (Easy, 2024-10-07 Daily Q):
+    1. Iterate the characters in string
+    2. Pop the stack (if it is not empty), if it is ‘A’ and the current char is ‘B’ (or ‘C’ and ‘D’ combination), pop the stack
+    3. Else, push the current character to the stack
+    4. Return the size of the stack
+- 1963\. Minimum Number of Swaps to Make the String Balanced (Medium, 2024-10-08 Daily Q):
+    1. Iterate over the characters in `s`
+    2. If the character is `[`, push it to the stack
+    3. Else (i.e., the character is `]`), check if the stack is empty, if so, increment the number of imbalance bracket
+    4. If the stack is not empty (and the top element must be `[` since that is the only char we are pushing to the stack), pop the stack
+    5. Return `(numImbalances + 1) / 2`
+    - As you can see, you really do not need stack, we can have an integer variable to replace it (push = incrementing, empty = check if integer is greater than 0, pop = decrement)
+- **921. Minimum Add to Make Parentheses Valid** (Medium, 2024-10-09 Daily Q):
+    1. Iterate over the characters in `s`
+    2. If the char is `(` push it to the stack
+    3. If the char is `)` and stack is not empty (which has to contain `(`), pop the stack
+    4. If the stack is empty, increment the number of stray `)`
+    5. Return the size of stack plus number of stray `)`
+    - As with 1963, you do not necessarily need a stack, you can use an integer variable
+- **1106. Parsing A Boolean Expression** (Hard, 2024-10-20 Daily Q):
+    1. Initialize two stacks, `operators` and `operands`
+    2. Iterate through the characters in `expression`
+    3. If it is `,`, skip
+    4. If it is one of the operators (`!`, `&`, or `|`), push it to the `operators`
+    5. If it is one of the operands or opening parenthesis (`t`, `f`, or `(`), push it to the `operands`
+    6. If it is `)`, initialize an array. Pop until the `operands` until it gives you `(`, add the popped elements into the array
+    7. Pop an operator from `operators` stack
+    8. If it is `!`, the result of the current operation is opposite of the one and only element in the operand array
+    9. If it is `&`, see if the array contains any `f`
+    10. If it is `|`, see if the array contains any `t`
+    11. Add the result of the operation back to `operands` stack
+    12. Return the top element of the `operands`
+    - Optimization: in 6, instead of holding every operands in an array, you only need to keep track of `lastOperand` (used to compute `!`), `seenTrue` (used to compute `|`), and `seenFalse` (used to compute `&`)
 
+## Two Pointers
+
+- ~~2491. Divide Players Into Teams of Equal Skill~~ (Medium, 2024-10-04 Daily Q): Sort the array, have the skill[0] + skill[n - 1] be the target chemistry (since it is always optimal to pair the current minimum and maximum skills), iterate through the array with two pointers, if we encounter chemistry that is not equal to the target chemistry, return -1
+- ~~2938. Separate Black and White Balls~~ (Medium, 2024-10-15 Daily Q):
+    1. Initialize the current white ball index at 0
+    2. Iterate through the characters in `s`
+    3. If we encounter `‘0’`, we need at least current index - current white ball index swaps to bring the white ball to the front. Accumulate this
+    4. Increment the current white ball index
+
+## Priority Queue
+
+- **1942. The Number of the Smallest Unoccupied Chair** (Medium, 2024-10-11 Daily Q):
+    1. Before sorting, make a map of arrival time which are unique to the original index
+    2. Sort `times` based on the arrival time
+    3. Add [0, n) to a min-heap named `available`
+    4. Declare a min-heap named `occupied`
+    5. Iterate through the `times`
+    6. Before processing the current person, if the top element of `occupied` has a departure time earlier than the current arrival time, pop and add it to the `available`. Repeat this until the top element is still in use
+    7. Assign the top element of the available to the current person. Push `(departureTime, chairNo)` to the `occupied`
+    8. During the loop, if we encounter `targetFriend`, return the chair
+- ~~2530. Maximal Score After Applying K Operations~~ (Medium, 2024-10-14 Daily Q):
+    - It is optimal to pick the greatest element
+    1. Define a max-heap and push all elements in `nums`
+    2. Iterate `k` times, pop an element, add it to the score, and push the ceiling of third of the element to the max-heap
 
 ---
 Below is generated by Leethub extension.
