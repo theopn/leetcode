@@ -14,6 +14,13 @@ I would trust solutions in this directory more since they are more recent and I 
 
 The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-2.0).
 
+## Daily Question Status
+
+- June 2024: 7/30
+- July 2024: 12/31
+- August 2024: 15/31
+- September 2024: 20/30
+
 ## Array
 
 - ~1550. Three Consecutive Odds~ (Easy, 2024-07-01 Daily Q): Iterate the array while keeping the consecutive odd count, return if the count is 3
@@ -34,6 +41,10 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     1. Build an array for subarray sums (size `n * (n + 1) / 2`)
     2. Sort the subarray sum array
     3. Iterate `[left - 1, right)`, accumulate `(accumulated_sum + subarraySum[i] % (1e9 + 7)` to prevent overflow
+- ~~1945. Sum of Digits of String After Convert~~ (Easy, 2024-09-03 Daily Q): Follow the direction
+- 884. Uncommon Words from Two Sentences (Easy, 2024-09-17 Daily Q):
+    1. add every space-separated words to the counter
+    2. iterate over the counter and return unique words (count 1)
 
 ## Hash Table
 
@@ -41,6 +52,7 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 - ~1460. Make Two Arrays Equal by Reversing Subarrays~ (Easy, 2024-08-03 Daily Q): This is only possible when two arrays have the same members, so… choose sorted, Counter, hash table, or whichever way is the most convenient for you.
 - ~2053. Kth Distinct String in an Array~ (Easy, 2024-08-05 Daily Q): Build a hash table/Counter mapping the frequency of each string, and iterate through the arr and find kth distinct string
 - ~1. Two Sum~ (Easy, 2024-08-27 Daily Q, but it was originally 1514. Path with Maximum Probability): Build a hash table for `num[i]` to `i`, iterate through the nums and check if target - nums[i] exists
+- 1684. Count the Number of Consistent Strings (Easy, 2024-09-12 Daily Q): build a hash table (or even better, boolean array of size 26) and count number of “consistent” strings
 
 ## Sorting
 
@@ -61,6 +73,8 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     - Make a counter and use a built-in sorting algorithm with lambda comparator. A worthy practice
 - **912. Sort an Array** (Medium, 2024-07-25 Daily Q)
     - Either merge sort or RANDOMIZED quick sort works. A good practice to learn efficient sorting algorithms
+- 179. Largest Number (Medium, 2024-09-18 Daily Q):
+    - Run merge sort in the string-ified nums array, but let the condition in the merge algorithm be `if int(l[i] + r[j]) > int(r[j] + l[i])` . It is because if `a..b > b..a and b.. c > c .. b` then `a..c > c..a` (transitivity). So if `l[i]..r[j] > r[j]..l[i]`, then `l[i]` should come before `r[j]`.
 
 ## Linked List
 
@@ -70,6 +84,18 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     2. Iterate through the list. If the value is 0, set the next of sentinel to the accumulated sum so far
     3. Else, accumulate the value
     4. Return `sentinel_save.next.next` since they do not want the first 0 in the list
+- **3217. Delete Nodes From Linked List Present in Array** (Medium, 2024-09-06 Daily Q):
+    - This is a great question to practice singlely LL deletion and utilization of sentinel node for bulk deletion
+    1. Define a hash table or set for the array elements
+    2. Define a sentinel node and let `sentinel.next` be the head. Also let the `curr` be the sentinel
+    3. Iterate while `curr.next` exists
+    4. If `curr.next.val` is in the array elements, delete the node (`temp = curr.next; curr.next = curr.next.next; delete tmp`)
+    5. If no element is deleted, regularly traverse the list
+    6. Return `sentinel.next`
+- **2807. Insert Greatest Common Divisors in Linked List** (Medium, 2024-09-10 Daily Q):
+    1. Traverse until `node.next` exists
+    2. get the GCD of `node` and `node.next`
+    3. insert the new GCD node
 
 ## Tree
 
@@ -99,6 +125,10 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 - 145. Binary Tree Postorder Traversal (Easy, 2024-08-25 Daily Q): LRN
 - 590. N-ary Tree Postorder Traversal (Easy, 2024-08-26 Daily Q):
     - Remember that postorder in binary tree is LRN, meaning in n-ary tree, we can visit children node in order then visit the node
+- **1367. Linked List in Binary Tree** (Medium, 2024-09-07 Daily Q):
+    1. Define a DFS algorithm where a) if we run out of LL nodes, since it means the entire LL is present in the tree, return true b) if we run out of tree nodes, return false, since we reach the leaf without matching the LL fully c) check if the values of the LL node and tree node match d) if so, recursively return DFS(next LL node, left children of the tree node) OR DFS(next LL node, right children of the tree node)
+    2. In the main function, if root is not null, call DFS on the current tree node and LL head
+    3. If that did returns false, recursively return MAIN(LL head, left children of the tree node) OR MAIN(LL head, right children of the tree node)
 
 ## Graph
 
@@ -137,6 +167,11 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 ## Simulation
 
 - ~1598. Crawler Log Folder~ (Easy, 2024-07-10 Daily Q): If the operation is "./", skip the iteration. If it is "../", check if the current number of operations is 0 (if it is, keep it 0) and decrement. If it is anything else, increase the number of operations.
+- 1894. Find the Student that Will Replace the Chalk (Medium, 2024-09-02 Daily Q):
+    1. Using `long`, accumulate in `chalk`
+    2. Subtract the accumulated `chalk` from `k` while it is positive (i.e., `k %= sum(chalk)`)
+    3. Iterate `chalk`and return `i` if `chalk[i]` has a value greater than `k`. If `chalk[i]` is smaller, subtract it from `k` and continue with the loop
+    4. Return the last student if the last loop ends without premature return
 
 ## String
 
@@ -183,6 +218,11 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
         return rowsum[0] == rowsum[1] && ... && rowsum[2] == colsum[2] && ...
         ```
     5. If we pass all three checks, yay, we found the magic square!
+- 2022. Convert 1D Array Into 2D Array (Easy, 2024-09-01 Daily Q):
+    - for `i`th element in the original array, the matrix position is `matrix[i // n][i % n]`
+- **2326. Spiral Matrix IV** (Medium, 2024-09-09 Daily Q):
+    1. initialize the matrix with -1
+    2. follow the basic principle of spiral matrix traversal, but instead of traversing `m * n` times, traverse until we run out of linked list node
 
 ## Binary Search
 
@@ -202,6 +242,11 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
         40 - 10 > 30, thus add r - l to the count
         ```
     6. If the return value of `countSmaller` is greater than `k`, move `hi`. Return `lo` after the binary search
+- 729. My Calendar I (Medium, 2024-09-26 Daily Q):
+    1. Either keep two arrays for start and end values of existing events or an array of tuples
+    2. Perform binary search for the end parameter in the existing start value arrays
+    3. Perform binary search for the start parameter in the existing end value arrays, but this time, make it return the rightmost position if the end value is the same as the existing start value, since we are allowed to have an event that starts right after one ends
+    4. If the result of both binary search is the same, meaning there is no overlapping events and that `(start, end)` tuple can fit right in between existing array elements, we insert this tuple in the found binary search position and return true
 
 ## Greedy
 
@@ -233,6 +278,50 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 - 476. Number Complement (Easy, 2024-08-22 Daily Q):
     1. Find the length of the bit representation of `num` and make a bitmask
     2. Return XOR of the `num` and the bitmask
+- **2220. Minimum Bit Flips to Convert Number** (Easy, 2024-09-11 Daily Q):
+    1. Take the XOR of start and goal
+    2. Count the number of 1’s in the XOR result
+- ~~1310. XOR Queries of a Subarray~~ (Medium, 2024-09-13 Daily Q): we just take the XOR of the elements in each subarray (queries) and add it to the result??
+- ~~2419. Longest Subarray With Maximum Bitwise AND~~ (Medium, 2024-09-14 Daily Q): find the longest consecutive sequence of the maximum value in the array
+
+## Math
+
+- 539. Minimum Time Difference (Medium, 2024-09-16 Daily Q):
+    1. convert time to minutes relative to midnight
+    2. sort
+    3. find the smallest `time[i] - time[i - 1]`
+    4. find the `1440 - abs(time[last] - time[0])`
+    5. return the smallest of two
+
+## KMP
+
+- **214. Shortest Palindrome** (Hard, 2024-09-20 Daily Q):
+    - The “Failure” function in KMP algorithm returns the array with the length of matching prefix and suffix of the substring at the given index. For example, for `"abaa"`, `pi[0] ("a") = 0`, `pi[1] ("ab") = 0`, `pi[2] ("|a| b |a|") = 1`, `pi[3] ("|a| b a |a|")` = 1
+    1. Run the Failure function with `s + <one character seperator> + s.reverse`
+    2. get the last value of the Failure function result
+    3. Prepend `s[:len(s) - pi[-1]` to the `s`
+
+## Trie
+
+- **3043. Find the Length of the Longest Common Prefix** (Medium, 2024-09-24 Daily Q):
+    1. Build a trie with either of `arr1` or `arr2`
+    2. Walk the trie with elements in `arr2` , while counting the steps
+    3. return the minimum
+- **2416. Sum of Prefix Scores of Strings** (Hard, 2024-09-25 Daily Q):
+    1. build a trie that keeps track of the number of visits per each node during insertion
+    2. walk the trie again with each word
+    3. accumulate the number of visits, which is the total prefix scores
+
+## Queue
+
+- **641. Design Circular Deque** (Medium, 2024-09-28 Daily Q):
+    - Do 622. Design Circular Queue first
+    1. Tackle `insertLast` (`enqueue` in standard queue) and `deleteFront` (`dequeue` in standard queue), as well as auxiliary methods the same way as 622.
+    2. `insertFront` and `deleteLast` use a similar logic as `insertLast` and `deleteFront`, except the new `head` and `tail` calculation becomes `(head/tail - 1 + k) % k`
+
+## Stack
+
+- ~~1381. Design a Stack With Increment Operation~~ (Medium, 2024-09-30 Daily Q): Keep track of size and maxSize. push and pop are as trivial as stack[size++] = x and size--; return stack[size] after checking the size conditions for each operation (i.e., whether size exceeds maxSize and whether the size == 0). Increment is trivial.
 
 <!---LeetCode Topics Start-->
 # LeetCode Topics
