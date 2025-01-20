@@ -20,6 +20,8 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 - July 2024: 12/31
 - August 2024: 15/31
 - September 2024: 20/30
+- October 2024: 18/31
+- November 2024: 18/30
 
 ## Array
 
@@ -57,6 +59,11 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     2. Iterate `i = [1, n)`, append `"1"` and save the string to `tmp`
     3. From `j = [tmp.len - 2, 0]`, append `"1"` to the `s` if `tmp[j] == 0` , `"0"` otherwise
     4. Break out of the loop if the current length of the `s` is greater than `k`
+- ~~1957. Delete Characters to Make Fancy String~~ (Easy, 2024-11-01 Daily Q):
+    1. Keep track of previous char and repeating length (initialized at 1)
+    2. Iterate through the characters in `s`, if the repeating length is greater than 2 and the current character is same as previous character, skip
+    3. Else, append the character to the fancy string
+    4. Increment the repeating length based on whether the previous character is same as the current one, update previous character
 
 ## Hash Table
 
@@ -184,6 +191,16 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     4. When `dist[node]` is 0.0 or 1.0, do not use that for the calculation of the `candidate` (which actually is the probability, and multiplying 0.0 or 1.0 would not go very well). Let the `candidate`be just the `weight` of the `node` and `v`
     5. Otherwise, set the candidate to the product of `dist[node]` and the `weight` between the `node` and `v`, and if that is GREATER than `dist[v]`. update the distance array accordingly and push it to the queue.
     6. Return `dist[end_node]`
+- ~~2924. Find Champion II~~ (Medum, 2024-11-26 Daily Q):
+    - Find vertices with 0 indegree
+- 3243\. Shortest Distance After Road Addition Queries I (Medium, 2024-11-27 Daily Q):
+    - Brute force sokution of running BFS afer each addition works
+    1. Build the adjacency list with initial edges
+    2. Define BFS with distance calculation
+    3. Iterate through `queries`, add a new edge to the adjacency list and run `bfs(0, n - 1)`
+- **2097. Valid Arrangement of Pairs** (Hard, 2024-11-30 Daily Q):
+    1. Run Hierholzer's Algorithm for finding an Euler Path in a directed graph
+    2. Since the algorithm returns the path in terms of vertex (e.g., `[3, 2, 5, 1]`), convert the path in terms of edges (e.g., `[[3, 2], [2, 5], [5, 1]]` )
 
 ### Shortest Path
 
@@ -202,6 +219,26 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     5. In the adjacent node for loop, if `candidate< dist1[v]` , move `dist1[v]` to `dist2[v]` before updating `dist[1]` and pushing the new pair to the queue.
     6. If `candidate < dist2[v] and dist1[v] != candidate` (i.e., it is the 2nd shortest path), update `dist2[v]` with `candidate` and push the `(candidate, v)` pair to the queue
     7. Return `dist2[n]`
+- **2290. Minimum Obstacle Removal to Reach Corner** (Hard, 2024-11-28 Daily Q):
+    1. Build the adjacency list with `m x n` lists
+    2. We are numbering the nodes as following
+        ```cpp
+        /*
+        |0|1|2|3|
+        |4|5|...
+        */
+        ```
+        So that the cell at `(i, j)` becomes `((i * n) + j`th node
+    3. Iterate through the cells in grid
+    4. Check if the current cell has an adjacent cell above (i.e., `i > 0`). If the cell above (i.e., `grid[i - 1][j]`) is 0, push a tuple `(((i - 1) * n) + j, 0)` to the adjacency list, 0 representing no cost to travel to the cell above. Otherwise, replace 0 with 1
+    5. Do the same for the cell below (i.e., check `i < m - 1` and get the cost to travel to `grid[i + 1][j]`), the cell to the left (i.e., check `j > 0` and get the cost to travel to `grid[i][j - 1]` , and the cell to the right (i.e., check `j < n - 1` and get the cost to travel to `grid[i][j + 1]`
+    6. Run Dijkstra starting from 0 using the adjacency list, return `dist[m * n - 1]`
+- 2577\. Minimum Time to Visit a Cell In a Grid (Hard, 2024-11-29 Daily Q):
+    1. Build the adjacency list of size `m x n` nodes using the same tactic as 2290, using the minimum time required to travel to the node as the weight (call it `mintime`)
+    2. Perform Dijkstra. The `priority` we pop from the heap in the conventional algorithm becomes the time passed so far (call it `timesofar`)
+    3. Check if `timesofar - mintime` is even when visiting adjacent nodes. If it is required to travel back and forth between the current and previous cell because the adjacent cell requires has a greater wait time, we are moving in the unit of 2 since it takes 2 seconds to move back and forth. If the difference between the current time and the threshold time is even, we waste one second. So add 1 to the `mintime` if that is the case
+    4. The `candidate` becomes the maximum between `mintime` (we have to wait to travel to the cell) and `timesofar + 1` (we can directly step into the cell)
+    5. Return `dist[m * n - 1]`
 
 ## Simulation
 
@@ -215,6 +252,16 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
 ## String
 
 - ~~2678. Number of Senior Citizens~~ (Easy, 2024-08-01 Daily Q): Parse the age part
+- ~~2490. Circular Sentence~~ (Easy, 2024-11-02 Daily Q):
+    1. Initialize the last character of the first word as `lastCharOfLastWord`
+    2. Iterate from the second word to the last
+    3. Check if the first character of the current word matches `lastCharOfLastWord` . If not return false, else update `lastCharOfLastWord`
+    4. After the loop, return if the first character of the first word (i.e., `sentence[0]`) equals to the last character of the last word (i.e., `sentence[-1]`) for the circular property
+- 3163\. String Compression III (Medium, 2024-11-04 Daily Q):
+    1. Loop until the `idx` is smaller than the length of the string
+    2. Set `currchar` and `currlen` to the `word[idx]` and 0, respectively
+    3. Increment `idx` and `currlen` while `idx` is within the string range, `currlen` is smaller than 9, and `word[idx]` is equal to the `currchar`
+    4. Append `currlen` and `currchar` to the `comp`
 
 ## Sliding Window
 
@@ -224,6 +271,12 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     3. First, count the number of 0’s from `i = 0 to windowsize`
     4. Iterate from `head = 0 to length of nums`, in each iteration, add zero count at the tail (`head + windowsize`) and subtract zero count at the `head`. Update the minimum zero if the current window contains the minimum zero count
     5. This minimum zero count is the minimum swap to group all 1’s together
+- 3254\. Find the Power of K-Size Subarrays I (Medium, 2024-11-16 Daily Q):
+    - Brute force works
+    1. Define an array `result` of size `n - k + 1` filled with -1
+    2. The `head` of the sliding window ranges from `[0, n - k  + 1)`
+    3. For each window `[head, head + k)`, checks if the elements in the window is consecutive. You can use a for loop iterating `[head + 1, head + k)` and a boolean flag for this
+    4. If the window is consecutive, update the `results[head]` to the maximum element of the window, i.e., `nums[head + k - 1]`
 
 ## Matrix
 
@@ -267,6 +320,48 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     1. The starting nodes are all cells at the first column (i.e., `for i = 0 to m - 1, (i, 0)`)
     2. The column direction is always adding 1, the row direction is `{-1, 0, 1}`
     3. When checking visit-able adjacent cell, add `grid[row][co] < grid[adjrow][adjcol]`
+- 2257\. Count Unguarded Cells in the Grid (Medium, 2024-11-21 Daily Q):
+    - This is not a good solution, barely avoiding TLE with stdin sync disabled. What I do not understand is that my solution has the same algorithm as the brute force solution in the Editorial, with Editorial’s solution having slightly worse optimization like counting unguarded cells in a separate loop, but theirs perform better than mine for some reason.
+    1. Define a `m x n` matrix filled with `UNGUARDED`
+    2. Fill `WALL` and `GUARD` cells. They are practically the same for traversal, so you can use the same enum if you wish to
+    3. Define the number of `unguarded` to be `m * n - walls.len - guards.len`
+    4. Traverse the `guards`
+    5. When traversing, there are 3 cases:
+        1. the coordinate we are trying to move is out of range or occupied by `WALLORGUARD` → stop the traversal
+        2. the cell is already guarded by another guard (marked `GUARDED`) → continue with the traversal
+        3. the cell is marked `UNGUARDED` → mark it guarded, decrement `unguarded`, and continue with the traversal
+    6. Traverse north by setting the temporary `roww = row - 1`, decrement `roww` until `roww > 0`
+    7. Traverse south by setting the termporary `roww = row + 1`, increment `roww` until `roww < m`
+    8. East and west traversals are the same except we are using `col`
+    9. Return `unguarded`
+- 1861\. Rotating the Box (Medium, 2024-11-23 Daily Q):
+    - Move the stones to the right first then rotate
+    1. Iterate through each row
+    2. Define an integer `stonequeue`
+    3. Iterate through `j =  [0, n)`
+    4. When we encounter a stone, increment `stonequeue` (i.e., putting a stone in the queue) and mark the cell empty
+    5. When we encounter the wall, put stones in the queue behind the wall by decrementing `stonequeue` and assigning `box[i][j - stonequeue] = '#'`
+    6. When we reach the end of the inner loop, place remaining stones in th end by decrementing `stonequeue` and assigning `box[i][n - stonequeue] = '#'`
+    7. Rotate the matrix by defining `n x m` matrix with `rotated[i][j] = box[m - 1 - j][i]`
+- ~~1975. Maximum Matrix Sum~~ (Medium, 2024-11-24 Daily Q):
+    - Suppose we have `n` cells with negative numbers. If `n` is even, we can convert them all positive by converting adjacent negative cells until two negative cells are adjacent and converting them both. If `n` is odd, we can convert `n - 1` adjacent cells to positive by the same process as even odd numbered grid, leaving a single negative cell. So we need to choose the negative cell with the smallest absolute value in order to maximize the sum.
+    1. Go through each cell in grid
+    2. Accumulate the absolute values
+    3. Keep track of the cell with smallest absolute value
+    4. After the loop, subtract the twice the smallest absolute value from sum. We subtract once because they should not have been added to the sum to begin with, once again because they would become negative if the conversion actually happens
+- 773\. Sliding Puzzle (Hard, 2024-11-25 Daily Q):
+    - Simply perform BFS to move 0 into every possible position. Then compare the grid in each step of BFS to the target grid. It is tedious because most PL do not allow hashing arrays.
+    1. Make custom functions `stringify` to convert contents of 2 x 3 grid into a string (e.g., `"123450"`) and `gridify` to convert the string back to 2 x 3 grid
+    2. Initialize a queue with `(stringify(board), 0)`, with 0 representing 0 number of moves applied to the initial grid. Also initialize the set `visited`, which will be used for the necessary optimization in BFS
+    3. Perform BFS while the queue is not empty
+    4. Pop the current grid (in string representation) and the number of moves applied to the current grid. Add the grid to `visited`
+    5. If the current grid matches `"123450"`, it means it is possible to construct the target grid by performing swaps. Return the number of moves applied to the current grid
+    6. Else, grid-ify the string representation and find the coordinate of 0 `(i, j)`
+    7. If 0 is in the top row (i.e., `i == 0`), try moving it down by swapping `(i, j)` and `(i + 1, j)`. If the new board is not in `visited`, enqueue the new board and number of moves applied plus 1
+    8. If 0 is in the bottom row (i.e., `i == 1`), try moving it up
+    9. If 0 is in the 1st or 2nd column (i.e., `j == 0 or j == 1` or `j != 2`), try moving it to the right by swapping `(i, j)` and `(i, j + 1)`. If the new board is not in `visited`, enqueue the new board and number of moves applied plus 1
+    10. If 0 is in the 2nd or 3rd column (i.e., `j == 1 or j == 2` or `j != 0`), try moving it to the left
+    11. After the BFS, return -1
 
 ## Binary Search
 
@@ -291,6 +386,15 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     2. Perform binary search for the end parameter in the existing start value arrays
     3. Perform binary search for the start parameter in the existing end value arrays, but this time, make it return the rightmost position if the end value is the same as the existing start value, since we are allowed to have an event that starts right after one ends
     4. If the result of both binary search is the same, meaning there is no overlapping events and that `(start, end)` tuple can fit right in between existing array elements, we insert this tuple in the found binary search position and return true
+- **2064. Minimized Maximum of Products Distributed to Any Store** (Medium, 2024-11-14 Daily Q):
+    - “Minimum maximum” means we likely have to use a binary search
+    1. Define a procedure `canDistribute` that takes an integer `k` , the value we are testing to see if each store can have at most `k` products, along with `n` and `quantities`
+    2. Define `idx = 0`  and `remainder = quantities[0]` to keep track of the current product quantity we are dealing with
+    3. Iterate through each store (`[0, n]`)
+    4. If `remainder` is greater `k` , subtract `k` from `remainder`
+    5. Else, increment `idx` and set `remainder` to `quantities[idx]` since it means we distributed all `idx`th products. Return true if `idx` is equal to the number of `quantities`
+    6. Outside of the loop, we if were not able to exhausted all `remainder`, return false
+    7. In the main function, perform a binary search with `hi` set as the maximum `quantities`. the condition `nums[mid] < target` becomes `!canDistribute(mid)`
 
 ## Greedy
 
@@ -307,6 +411,8 @@ The solutions are uploaded using [LeetHub v2](https://github.com/arunbhardwaj/Le
     4. Compare `currentDist` with `maxDist` and update `maxDist` accordingly
     5. Update `currMin` and `currMax` to the first and last element of the current array, if needed
     6. Return the final `maxDist`
+- ~~2914. Minimum Number of Changes to Make Binary String Beautiful~~ (Medium, 2024-11-05):
+    - Use Divide and Conquer approach; iterate through the string and consider two elements per iteration, if they do not match, one of them needs a change
 
 ## Dynamic Programming
 
@@ -378,6 +484,19 @@ int lengthOfLIS(vector<int>& nums) {
     2. Count the number of 1’s in the XOR result
 - ~~1310. XOR Queries of a Subarray~~ (Medium, 2024-09-13 Daily Q): we just take the XOR of the elements in each subarray (queries) and add it to the result??
 - ~~2419. Longest Subarray With Maximum Bitwise AND~~ (Medium, 2024-09-14 Daily Q): find the longest consecutive sequence of the maximum value in the array
+- **3011. Find if Array Can Be Sorted** (Medium. 2024-11-06 Daily Q):
+    - Reference the following diagram. You have to make sure that, for example, maximum in "n-bit bubble" is smaller than the minimum in the "m-bit bubble" for the whole array to be sortable
+    ```
+    [ n-bit n-bit m-bit m-bit m-bit s-bit t-bit t-bit t-bit s-bit s-bit ] ->
+    [ (n-bit n-bit) (m-bit m-bit m-bit) (s-bit) (t-bit t-bit t-bit) (s-bit s-bit) ]
+    Numbers are swappable between each "bubble"
+    ```
+    1. Define a function to count set bits (Kernighan’s Algorithm or a built-in function)
+    2. Set `nums[0]` to be `currMin`  and `currMax ,`the number of set bits in `nums[0]` to be `currBits`, and $-\infty$ to `prevMax`
+    3. Iterate from `[1, n - 1]` . If the `nums[i]` has the same number of set bits as `currBits`, it belongs to the same segment. Update `currMin` and `currMax` if needed
+    4. If the number of set bits does not match, the current segment has ended at `nums[i - 1]` . Check if `prevMax < currMin` and return false if failed
+    5. If the segment condition check passed, Update `prevMax` to `currMax` , `currMin` and `currMax` to `nums[i]`, and `currBits` to the number of set bits in `nums[i]` to start a new segment
+    6. Do not forget the `prevMax < currMIn` check after the loop for the final segment in the array
 
 ## Math
 
@@ -387,6 +506,13 @@ int lengthOfLIS(vector<int>& nums) {
     3. find the smallest `time[i] - time[i - 1]`
     4. find the `1440 - abs(time[last] - time[0])`
     5. return the smallest of two
+- **1652. Defuse the Bomb** (Easy, 2024-11-18 Daily Q):
+    - To account for a negative index during circular array traversal, use `(a + n) % n` if `k <= n` , else `(((a + n) % n) + n) % n`
+    1. Defne an array `decrypted` of size `n` filled with 0
+    2. If `k == 0`, return `decrypted` as is
+    3. Iterate `i = [0, n)`
+    4. If `k > 0`, iterate`j = [1, k]` and accumulate `code[(i + j) % n]` and assign it to `code[i]`
+    5. If `k > 0`, iterate `j = [1, -k]` and accumulate `code[((i + j) + n) % n]` and assign it to `code[i]` (or `code[((((i + j) + n) % n) + n) % n]` to be safe
 
 ## KMP
 
@@ -395,6 +521,9 @@ int lengthOfLIS(vector<int>& nums) {
     1. Run the Failure function with `s + <one character seperator> + s.reverse`
     2. get the last value of the Failure function result
     3. Prepend `s[:len(s) - pi[-1]` to the `s`
+- 796\. Rotate String (Easy, 2024-11-03 Daily Q):
+    1. Check if the length of `s` and `goal` matches. Otherwise they can never be the same with rotation
+    2. Check if `s + s` contains `goal` as a pattern. You can do brute-force (C++ solution) or use KMP (Python solution)
 
 ## Trie
 
